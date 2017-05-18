@@ -15,7 +15,7 @@
 		<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
 	</head>
 	<body>
-		<div id="wrapper">
+		<!-- <div id="wrapper"> -->
 			<!-- NAV SIDE seulement si on est connecté -->
 			<!--<?php if (isset($_COOKIE["token"]) && verificationToken($decoded_array)){
 				 include("menu/side_menu.php");
@@ -35,19 +35,11 @@
             </div>
         </div>
     </header>
-      <div class="row">
-        <div class="col-lg-push-1 col-lg-pull-1 col-lg-10">
           <div class="bg-color-info col-sm-12 centrer ">
             <a href="inscription.controller.php" class="btn btn-primary btn-lg" role="button">Inscription</a>
             <a href="connexion.controller.php" class="btn btn-default" role="button">Connexion</a>
           </div>
           <!-- /.col-sm-12 -->
-        </div>
-        <!-- /.col-lg-10 -->
-      </div>
-      <!-- /. row  -->
-    </div>
-    <!-- /. WRAPPER  -->
     <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME -->
 	  <!-- JQUERY SCRIPTS -->
 	  <script src="../assets/js/jquery-1.10.2.js"></script>
