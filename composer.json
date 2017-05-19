@@ -1,18 +1,21 @@
 {
-    "name": "projetweb/VolleyBallCompetition",
-    "description": "JWT for VolleyBall site",
-    "authors":{
-          "name": "Loris Zirah",
-          "email": "loris.zirah@etu.umontpellier.fr"
-    },
+    "name": "loris/volleyballtournament",
+    "description": "JWT for VolleyBall Site",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Loris Zirah",
+            "email": "loris.zirah@etu.umontpellier.fr"
+        }
+    ],
+    "minimum-stability": "dev",
     "require": {
-        "php": ">=5.3.0",
-        "firebase/php-jwt": "^4.0"
+	"php": ">=5.3.0",
+        "firebase/php-jwt": "dev-master"
     },
     "autoload": {
-        "psr-4": {
-            "Firebase\\JWT\\": "src"
-        }
-    },
-    "minimum-stability": "dev"
+	"psr-4": {
+		"Firebase\\JWT\\": "src"
+	}
+   }
 }
