@@ -8,6 +8,7 @@
 		<!-- FONTAWESOME STYLES-->
 		<link href="../assets/css/font-awesome.css" rel="stylesheet" />
 		<!-- CUSTOM STYLES-->
+		<link href="../assets/css/perso.css" rel="stylesheet" />
 		<link href="../assets/css/custom.css" rel="stylesheet" />
 		<link href="../assets/css/general.css" rel="stylesheet" />
 		<!-- GOOGLE FONTS-->
@@ -15,11 +16,6 @@
 	</head>
 	<body>
 		<div id="wrapper">
-			<!-- NAV SIDE seulement si on est connecté -->
-			<!--<?php if (isset($_COOKIE["token"]) && verificationToken($decoded_array)){
-				 include("menu/side_menu.php");
-			} ?>-->
-
       <div class="row">
         <div class="col-lg-push-1 col-lg-pull-1 col-lg-10">
           <div class="bg-color-info col-sm-12 centrer ">
@@ -35,9 +31,18 @@
       <div class="row">
         <div class="col-lg-push-1 col-lg-pull-1 col-lg-10">
           <div class="bg-color-info col-sm-12 centrer ">
-            <a href="inscription.controller.php" class="btn btn-primary btn-lg" role="button">Inscription</a>
-            <a href="connexion.controller.php" class="btn btn-primary btn-lg" role="button">Connexion</a>
+            <a id="inscriptionBoutton" class="btn btn-primary btn-lg" role="button">Inscription</a>
+            <a id="connexionBoutton" class="btn btn-primary btn-lg" role="button">Connexion</a>
           </div>
+					<div id="connexion">
+						<a href="../controller/connexionJoueur.controller.php" class="btn btn-primary btn-lg" role="button">Connexion Joueur</a>
+						<a href="../controller/connexionOrganisateur.controller.php" class="btn btn-primary btn-lg" role="button">Connexion Organisateur</a>
+						<a href="../controller/connexionAdmin.controller.php" class="btn btn-primary btn-lg" role="button">Connexion Admin</a>
+					</div>
+					<div id="inscription">
+						<a href="../controller/inscriptionJoueur.controller.php" class="btn btn-primary btn-lg" role="button">Inscription Joueur</a>
+						<a href="../controller/inscriptionOrganisateur.controller.php" class="btn btn-primary btn-lg" role="button">Inscription Organisateur</a>
+					</div>
           <!-- /.col-sm-12 -->
         </div>
         <!-- /.col-lg-10 -->
@@ -53,6 +58,7 @@
 	  <!-- METISMENU SCRIPTS -->
 	  <script src="../assets/js/jquery.metisMenu.js"></script>
 	  <!-- CUSTOM SCRIPTS -->
+		<script src="../controller/js/connexion.js"></script>
 	  <script src="../assets/js/custom.js"></script>
 	</body>
 </html>
