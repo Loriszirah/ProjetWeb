@@ -2,13 +2,12 @@
 //fonctions d'accès a la base de données du type joueur
 require_once('../model/connexionBD');
 
-$pdo=connection();
 
 function getAll(){
 	//resultat : retourne l'ensemble des joueurs
 
-	global $pdo;
 	try{
+		$pdo=connection();
 		$req=$pdo->prepare('SELECT * FROM Player');
 		$req->execute(array());
 		$list=$req->fetch();
