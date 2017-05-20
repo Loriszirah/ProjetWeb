@@ -29,39 +29,39 @@
 															<fieldset>
 																	<div class="form-group">
 																			<label>Nom : </label>
-																			<input type="text" class="form-control" name="nom" placeholder="Nom" autofocus/>
+																			<input type="text" class="form-control" name="nom" placeholder="Nom" autofocus required />
 																	</div>
 																	<div class="form-group">
 																			<label>Prénom : </label>
-																			<input type="text" class="form-control" name="prenom" placeholder="Prénom">
+																			<input type="text" class="form-control" name="prenom" placeholder="Prénom"required />
 																	</div>
 																	<div class="form-group">
 																			<label>Email : </label>
-																			<input type="email" class="form-control" name="email" placeholder="gunther@gmail.com">
+																			<input type="email" class="form-control" name="email" placeholder="gunther@gmail.com" required />
 																	</div>
                                   <div class="form-group">
 																			<label>Psoeudo : </label>
-																			<input type="text" class="form-control" name="psoeudo" placeholder="psoeudo">
+																			<input type="text" class="form-control" name="psoeudo" placeholder="psoeudo" required />
 																	</div>
                                   <div class="form-group">
 																			<label>Age : </label>
-																			<input type="number" class="form-control" name="age" placeholder="21">
+																			<input type="number" class="form-control" name="age" placeholder="21" required />
 																	</div>
                                   <div class="form-group">
 																			<label>Numéro de téléphone : </label>
-																			<input type="tel" class="form-control" name="telephone" placeholder="06.34.34.34.34">
+																			<input type="tel" class="form-control" name="telephone" placeholder="06.34.34.34.34" required />
 																	</div>
                                   <div class="form-group">
 																			<label>Ville : </label>
-																			<input type="number" class="form-control" name="ville" placeholder="Montpellier" required>
+																			<input type="text" class="form-control" name="ville" placeholder="Montpellier" required />
 																	</div>
 																	<div class="form-group">
 																			<label>Mot de passe : </label>
-																			<input type="password" class="form-control" name="passwd">
+																			<input type="password" class="form-control" name="passwd" required />
 																	</div>
 																	<div class="form-group">
 																			<label>Confirmation mot de passe : </label>
-																			<input type="password" class="form-control" name="passwdconf">
+																			<input type="password" class="form-control" name="passwdconf" />
 																	</div>
 																	<input type="submit" class="btn btn-lg btn-success btn-block" value="S'inscrire" />
 															</fieldset>
