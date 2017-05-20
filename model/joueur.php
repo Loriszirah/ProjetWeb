@@ -1,6 +1,5 @@
 <?php
 //fonctions d'accès a la base de données du type joueur
-require_once('../model/connexionBD');
 
 
 function getAll(){
