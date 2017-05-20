@@ -6,4 +6,4 @@
     else{
       include('redirection.php');
     }
-  ?>
+?>

@@ -34,11 +34,13 @@
             <a id="inscriptionBoutton" class="btn btn-primary btn-lg" role="button">Inscription</a>
             <a id="connexionBoutton" class="btn btn-primary btn-lg" role="button">Connexion</a>
           </div>
-					<div id="connexion">
+					<div id="connexion" class="row">
+						<div class="bg-color-info col-sm-12 centrer ">
 						<a href="../controller/connexionJoueur.controller.php" class="btn btn-primary btn-lg" role="button">Connexion Joueur</a>
 						<a href="../controller/connexionOrganisateur.controller.php" class="btn btn-primary btn-lg" role="button">Connexion Organisateur</a>
 						<a href="../controller/connexionAdmin.controller.php" class="btn btn-primary btn-lg" role="button">Connexion Admin</a>
 					</div>
+				</div>
 					<div id="inscription">
 						<a href="../controller/inscriptionJoueur.controller.php" class="btn btn-primary btn-lg" role="button">Inscription Joueur</a>
 						<a href="../controller/inscriptionOrganisateur.controller.php" class="btn btn-primary btn-lg" role="button">Inscription Organisateur</a>
