@@ -28,7 +28,7 @@ require_once('../model/Joueur.php');
       $idPsoeudo=existeJoueur($psoeudo);
     	$idEmail=existeJoueur($email);
 			//On vérifie que le joueur n'est pas déjà dans la base de données
-	    if(!$idPsoeudo>0 && !idEmail>0){
+	    if(!$idPsoeudo>0 && !$idEmail>0){
          ajoutJoueur($idPromo,$mail,$nom,$prenom,$passwd,$ville,$psuedo,);
          header('Location:connexionJoueur.controller.php');
       }
