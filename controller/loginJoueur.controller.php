@@ -1,6 +1,7 @@
 <?php
   require_once('../vendor/autoload.php');
-  //require_once('../model/connexionBD.php');
+  require_once('../model/connexionBD.php');
+  require_once('../model/joueur.php');
   use \Firebase\JWT\JWT;
 
   //TODO : mettre ces variables dans un fichier .env

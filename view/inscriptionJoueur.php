@@ -3,7 +3,7 @@
 
 	<head>
 		<meta charset="utf-8"/>
-		<title>Inscription au test de Hollande</title>
+		<title>Inscription Joueur</title>
 		<!-- BOOTSTRAP STYLES-->
 		<link href="../assets/css/bootstrap.css" rel="stylesheet" />
 		<!-- FONTAWESOME STYLES-->
@@ -25,7 +25,7 @@
 													<h3 class="panel-title centrer">Inscription Joueur</h3>
 											</div>
 											<div class="panel-body">
-													<form action="../controller/verifInscription.controller.php" method="post" onsubmit="return (verifInfoJoueur() && verifPassword());" role="form">
+													<form action="../controller/verifInscription.controller.php" method="post" onsubmit="return (verifInfoJoueur()   verifPassword());" role="form">
 															<fieldset>
 																	<div class="form-group">
 																			<label>Nom : </label>
@@ -49,7 +49,7 @@
 																	</div>
                                   <div class="form-group">
 																			<label>Numéro de téléphone : </label>
-																			<input type="tel" class="form-control" name="telephone" placeholder="06.34.34.34.34" required />
+																			<input type="tel" class="form-control" name="telephone" placeholder="06 34 34 34 34" required />
 																	</div>
                                   <div class="form-group">
 																			<label>Ville : </label>
