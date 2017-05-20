@@ -1,6 +1,24 @@
 <?php
 //fonctions d'accès a la base de données du type joueur
 
+function getAll(){
+	//donnée : id du joueur
+	//pre : idJoueur : entier >0
+	//resultat : true si un joueur éxiste avec cet id, false sinon
+
+	global $pdo;
+	try{
+		$req=$pdo->prepare('SELECT * FROM Player');
+		$req->execute(array());
+		$compteur=$req->fetch();
+	} catch(PDOException $e){
+			echo($e->getMessage());
+			die(" Erreur lors de la vérification de l'éxistence du joueur" );
+}
+	return $compteur;
+}
+
+
 function existeJoueur($idJoueur){
 	//donnée : id du joueur
 	//pre : idJoueur : entier >0

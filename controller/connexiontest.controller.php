@@ -2,6 +2,6 @@
 require_once('../model/Joueur.php');
 require_once('../model/connexionBD.php');
 
-$idPsoeudo=existeJoueur('Airkan');
+$joueur=getAll();
 include('../view/connexiontest.php');
 ?>
