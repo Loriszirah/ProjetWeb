@@ -10,7 +10,7 @@ function getAll(){
 
 		$req=$pdo->prepare('SELECT * FROM person');
 		$req->execute(array());
-		$list=$req->fetch(PDO::FETCH_ASSOC);
+		$list=$req->fetch();
 	} catch(PDOException $e){
 			echo($e->getMessage());
 			die(" Erreur lors de la vérification de l'éxistence du joueur" );
