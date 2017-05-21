@@ -23,7 +23,7 @@
 	<body>
 		<h2>joueur présent<h2>
 		<?php foreach($joueur as $jou){
-		 echo $jou["nom"];
+		 echo $jou["email"];
 		}?>
 	</body>
 </html>
