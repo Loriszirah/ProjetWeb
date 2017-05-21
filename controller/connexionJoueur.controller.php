@@ -1,9 +1,13 @@
 <?php
+  require_once('../model/connexionBD.php');
+  require_once('../model/joueur.php');
+
+  $joueur=getAll();
     //Si la personne n'est pas connecté
-    if (!isset($_COOKIE["token"])){
-      include('../view/connexionJoueur.php');
-    }
+    //if (!isset($_COOKIE["token"])){
+      include('../view/connexiontest.php');
+  /*  }
     else{
       include('redirection.php');
-    }
+    }*/
 ?>
