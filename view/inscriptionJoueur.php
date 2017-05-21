@@ -40,8 +40,8 @@
 																			<input type="email" class="form-control" name="email" placeholder="gunther@gmail.com" required />
 																	</div>
                                   <div class="form-group">
-																			<label>Psoeudo : </label>
-																			<input type="text" class="form-control" name="psoeudo" placeholder="psoeudo" required />
+																			<label>Pseudo : </label>
+																			<input type="text" class="form-control" name="pseudo" placeholder="pseudo" required />
 																	</div>
                                   <div class="form-group">
 																			<label>Age : </label>

@@ -20,10 +20,12 @@
 
                 //On crypte le mot de passe avec un "grain de sel"
                 $password = crypt($password,$keyCryptage);
-                $id=existeJoueur($email, $password);
+                existeJoueur($email, $password);
+                $existe=existeJoueur($email, $password);
+                echo($existe);
 
                 //On vérifie que le login existe dans la table et que les informations soient exactes. (BD.password==passwd && BD.email==email)
-                if ($id>0){
+                if (existeJoueur($email, $password)){
                     //On définit le token contenant les différentes informations.
                     $token = array(
                         "iss" => $_SERVER['HTTP_HOST'],

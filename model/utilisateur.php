@@ -8,9 +8,9 @@ function getInfosUtilisateur($idUtilisateur){
 
 	global $pdo;
 	try{
-		$req=$pdo->prepare('SELECT * FROM User u
-															   INNER JOIN Person p ON p.idPerson=u.idPerson
-																 WHERE idPerson=?');
+		$req=$pdo->prepare('SELECT * FROM Utilisateur u
+															   INNER JOIN Personne p ON p.idPersonne=u.idPersonne
+																 WHERE idPersonne=?');
 		$req->execute(array($idUtilisateur));
 		$infos=$req->fetch();
 	} catch(PDOException $e){
@@ -27,7 +27,7 @@ function getPsoeudoUtilisateur($idUtilisateur){
 
   global $pdo;
 	try{
-		$req=$pdo->prepare('SELECT pseudo FROM Person WHERE idPerson=?');
+		$req=$pdo->prepare('SELECT pseudo FROM Personne WHERE idPersonne=?');
 		$req->execute(array($idUtilisateur));
 		$pseudo=$req->fetch();
 	} catch(PDOException $e){

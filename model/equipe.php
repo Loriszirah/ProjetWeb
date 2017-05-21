@@ -7,7 +7,7 @@ function existeEquipe($nomEquipe){
 
 	global $pdo;
 	try{
-		$req=$pdo->prepare('SELECT COUNT(*) FROM Team WHERE name=?');
+		$req=$pdo->prepare('SELECT COUNT(*) FROM Equipe WHERE nom=?');
 		$req->execute(array($nomEquipe));
 		$compteur=$req->fetch();
 	} catch(PDOException $e){
@@ -23,7 +23,7 @@ function ajoutEquipe($nomEquipe,$idCapitaine){
 
 	global $pdo;
 	try{
-		$req=$pdo->prepare('INSERT INTO Team(nom,idPerson) VALUES (?,?)');
+		$req=$pdo->prepare('INSERT INTO Equipe(nom,idPersonne) VALUES (?,?)');
 		$req->execute(array($nomEquipe,$idCapitaine));
 	} catch(PDOException $e){
 			echo($e->getMessage());
@@ -37,9 +37,9 @@ function getAllEquipes($idJoueur){
 
   global $pdo;
   try{
-    $req=$pdo->prepare('SELECT DISTINCT t.nom,t.idPerson FROM Team t
-                        INNER JOIN Belong b ON b.idTeam=t.idTeam
-                        WHERE b.idPerson=?');
+    $req=$pdo->prepare('SELECT DISTINCT t.nom,t.idPersonne FROM Equipe e
+                        INNER JOIN Appartenir a ON a.idEquipe=e.idEquipe
+                        WHERE a.idPersonne=?');
     $req->execute(array($idJoueur));
     $list=$req->fecthAll();
   } catch(PDOException $e){
@@ -55,7 +55,7 @@ function getEquipe($idEquipe){
 
   global $pdo;
 	try{
-		$req=$pdo->prepare('SELECT * FROM Team WHERE idTeam=?');
+		$req=$pdo->prepare('SELECT * FROM Equipe WHERE idEquipe=?');
 		$req->execute(array($idEquipe));
     $equipe=$req->fetch();
 	} catch(PDOException $e){
@@ -73,11 +73,11 @@ function deleteEquipe($idEquipe){
   global $pdo;
 	try{
     //Suppréssion de tous les membres de l'équipe
-		$req=$pdo->prepare('DELETE FROM Belong WHERE idTeam=?');
+		$req=$pdo->prepare('DELETE FROM Appartenir WHERE idEquipe=?');
 		$req->execute(array($idEquipe));
 
     //Suppréssion de l'équipe
-    $req=$pdo->prepare('DELETE FROM Team WHERE idTeam=?');
+    $req=$pdo->prepare('DELETE FROM Equipe WHERE idEquipe=?');
 		$req->execute(array($idEquipe));
 
 	} catch(PDOException $e){

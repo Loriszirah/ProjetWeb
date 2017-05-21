@@ -9,14 +9,11 @@ require_once('../model/Joueur.php');
 
 //vérifie que l'utilisateur n'est pas connecté
  if(!isset($_COOKIE["token"])){
-	 //vérifie que tous les champs sont non vides et non NULL
-	 if (isset($nom) && isset($prenom) && isset($passwd) && isset($passwdconf) && isset($email) &&isset($clefPromo) &&
-   !empty($nom) && !empty($prenom) && !empty($passwd) && !empty($passwdconf) && !empty($email) && !empty($clefPromo)){
      //Sécurisation des données saisies
       $nom = htmlspecialchars ($_POST['nom']);
       $prenom = htmlspecialchars ($_POST['prenom']);
       $email = htmlspecialchars ($_POST['email']);
-      $psoeudo = htmlspecialchars ($_POST['psoeudo']);
+      $pseudo = htmlspecialchars ($_POST['pseudo']);
       $age = htmlspecialchars ($_POST['age']);
       $telephone = htmlspecialchars ($_POST['telephone']);
       $ville = htmlspecialchars ($_POST['ville']);
@@ -25,12 +22,12 @@ require_once('../model/Joueur.php');
 
     	//On crypte le mot de passe avec un "grain de sel"
     	$passwd = crypt($passwd,$keyCryptage);
-      $idPsoeudo=existeJoueurPsoeudo($psoeudo);
+      $idPseudo=existeJoueurPseudo($pseudo);
     	$idEmail=existeJoueurEmail($email);
 			//On vérifie que le joueur n'est pas déjà dans la base de données
-	    if(!$idPsoeudo){
+	    if(!$idPseudo){
         if(!$idEmail){
-         ajoutJoueur($nom,$prenom,$email,$passwd,$psoeudo,$age,$telephone,$ville);
+         ajoutJoueur($nom,$prenom,$email,$passwd,$pseudo,$age,$telephone,$ville);
          header('Location:connexionJoueur.controller.php');
         }
         else{
@@ -41,10 +38,6 @@ require_once('../model/Joueur.php');
 			echo 'ERREUR : ce psoeudo est déjà utilisé';
         }
       }
-    else {
-		echo 'ERREUR : un des champs est vide';
-    }
- }
  else{
 	header('Location:../controller/redirection.php');
 	}

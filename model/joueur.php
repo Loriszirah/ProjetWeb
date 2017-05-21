@@ -19,21 +19,26 @@ function getAll(){
 }
 
 
-function existeJoueur($idJoueur){
-	//donnée : id du joueur
-	//pre : idJoueur : entier >0
-	//resultat : true si un joueur éxiste avec cet id, false sinon
+function existeJoueur($email, $password){
+	//donnée : email et mot de passe du joueur
+	//resultat : true si un joueur éxiste avec ce mail et mot de passe, false sinon
 
 	global $pdo;
 	try{
-		$req=$pdo->prepare('SELECT COUNT(*) FROM Player WHERE idPerson=?');
-		$req->execute(array($idJoueur));
+		$req=$pdo->prepare('SELECT COUNT(*) FROM Personne
+																				WHERE email=? AND password=?');
+		$req->execute(array($email, $password));
 		$compteur=$req->fetch();
 	} catch(PDOException $e){
 			echo($e->getMessage());
 			die(" Erreur lors de la vérification de l'éxistence du joueur" );
 }
-	return $compteur[0]>0;
+	if($compteur[0]>0){
+		return true;
+	}
+	else{
+		return false;
+	}
 }
 
 function existeJoueurPseudo($pseudo){
@@ -43,8 +48,11 @@ function existeJoueurPseudo($pseudo){
 
 	global $pdo;
 	try{
-		$req=$pdo->prepare('SELECT COUNT(*) FROM Person WHERE pseudo=?');
-		$req->execute(array($idJoueur));
+		$req=$pdo->prepare('SELECT COUNT(*) FROM Joueur j
+																				INNER JOIN Utilisateur u ON j.idPersonne=u.idPersonne
+																				INNER JOIN Personne p ON p.idPersonne=u.idPersonne
+																				WHERE pseudo=?');
+		$req->execute(array($pseudo));
 		$compteur=$req->fetch();
 	} catch(PDOException $e){
 			echo($e->getMessage());
@@ -60,8 +68,11 @@ function existeJoueurEmail($email){
 
 	global $pdo;
 	try{
-		$req=$pdo->prepare('SELECT COUNT(*) FROM Person WHERE email=?');
-		$req->execute(array($idJoueur));
+		$req=$pdo->prepare('SELECT COUNT(*) FROM Joueur j
+																				INNER JOIN Utilisateur u ON j.idPersonne=u.idPersonne
+																				INNER JOIN Personne p ON p.idPersonne=u.idPersonne
+																				WHERE email=?');
+		$req->execute(array($email));
 		$compteur=$req->fetch();
 	} catch(PDOException $e){
 			echo($e->getMessage());
@@ -70,31 +81,31 @@ function existeJoueurEmail($email){
 	return $compteur[0]>0;
 }
 
-function ajoutJoueur($nom,$prenom,$email,$passwd,$psoeudo,$age,$telephone,$ville){
+function ajoutJoueur($nom,$prenom,$email,$passwd,$pseudo,$age,$telephone,$ville){
 	//donnée : informations du joueur à ajouter
 	//resultat : ajoute le joueur à la bd
 
 	global $pdo;
 	try{
-		/* Ajout du joueur dans Person */
-		$req=$pdo->prepare('INSERT INTO Person(nom,prenom,email,psoeudo) VALUES (?,?,?,?,?)');
-		$req->execute(array($nom,$prenom,$email,$psoeudo,$passwd));
+		/* Ajout du joueur dans Personne */
+		$req=$pdo->prepare('INSERT INTO Personne(nom,prenom,email,pseudo,password) VALUES (?,?,?,?,?)');
+		$req->execute(array($nom,$prenom,$email,$pseudo,$passwd));
 
 		/* Selection de l'id du joueur ajouté */
-		$req=$pdo->prepare('SELECT idPerson FROM Person WHERE psoeudo=?');
-		$req->execute(array($psoeudo));
-		$idPerson=$req->fetch();
+		$req=$pdo->prepare('SELECT idPersonne FROM Personne WHERE pseudo=?');
+		$req->execute(array($pseudo));
+		$idPersonne=(int)$req->fetch();
 
-		/* Ajout du joueur dans User */
-		$req=$pdo->prepare('INSERT INTO User(idPerson,age,number,ville) VALUES (?,?,?,?)');
-		$req->execute(array($idPerson,$age,$number,$ville));
+		/* Ajout du joueur dans Utilisateur */
+		$req=$pdo->prepare('INSERT INTO Utilisateur(idPersonne,age,telephone,ville) VALUES (?,?,?,?)');
+		$req->execute(array($idPersonne,$age,$telephone,$ville));
 
-		/* Ajout du joueur dans Player */
-		$req=$pdo->prepare('INSERT INTO Player(idPerson) VALUES (?)');
-		$req->execute(array($idPerson));
+		/* Ajout du joueur dans Joueur */
+		$req=$pdo->prepare('INSERT INTO Joueur(idPersonne) VALUES (?)');
+		$req->execute(array($idPersonne));
 
 	} catch(PDOException $e){
 			echo($e->getMessage());
-			die(" Erreur lors de la vérification de l'éxistence du joueur" );
+			die(" Erreur lors de l'ajout d'un joueur" );
 		}
 }
