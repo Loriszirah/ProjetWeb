@@ -8,7 +8,9 @@ function getInfosUtilisateur($idUtilisateur){
 
 	global $pdo;
 	try{
-		$req=$pdo->prepare('SELECT * FROM User WHERE idPerson=?');
+		$req=$pdo->prepare('SELECT * FROM User u
+															   INNER JOIN Person p ON p.idPerson=u.idPerson
+																 WHERE idPerson=?');
 		$req->execute(array($idUtilisateur));
 		$infos=$req->fetch();
 	} catch(PDOException $e){
@@ -21,16 +23,16 @@ function getInfosUtilisateur($idUtilisateur){
 function getPsoeudoUtilisateur($idUtilisateur){
   //donnée : id de l'utilisateur
 	//pre : idUtilisateur : entier >0
-	//resultat : le psoeudo de l'utilisateur
+	//resultat : le pseudo de l'utilisateur
 
   global $pdo;
 	try{
-		$req=$pdo->prepare('SELECT psoeudo FROM User WHERE idPerson=?');
+		$req=$pdo->prepare('SELECT pseudo FROM Person WHERE idPerson=?');
 		$req->execute(array($idUtilisateur));
-		$psoeudo=$req->fetch();
+		$pseudo=$req->fetch();
 	} catch(PDOException $e){
 			echo($e->getMessage());
-			die(" Erreur lors de la récupération du psoeudo de l'utilisateur" );
+			die(" Erreur lors de la récupération du pseudo de l'utilisateur" );
 }
-	return $psoeudo;
+	return $pseudo;
 }

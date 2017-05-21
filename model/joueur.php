@@ -43,7 +43,7 @@ function existeJoueurPseudo($pseudo){
 
 	global $pdo;
 	try{
-		$req=$pdo->prepare('SELECT COUNT(*) FROM Player WHERE pseudo=?');
+		$req=$pdo->prepare('SELECT COUNT(*) FROM Person WHERE pseudo=?');
 		$req->execute(array($idJoueur));
 		$compteur=$req->fetch();
 	} catch(PDOException $e){
@@ -60,7 +60,7 @@ function existeJoueurEmail($email){
 
 	global $pdo;
 	try{
-		$req=$pdo->prepare('SELECT COUNT(*) FROM Player WHERE email=?');
+		$req=$pdo->prepare('SELECT COUNT(*) FROM Person WHERE email=?');
 		$req->execute(array($idJoueur));
 		$compteur=$req->fetch();
 	} catch(PDOException $e){
