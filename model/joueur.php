@@ -8,7 +8,7 @@ function getAll(){
 	try{
 		global $pdo;
 
-		$req=$pdo->prepare('SELECT * FROM person');
+		$req=$pdo->prepare('SELECT * FROM Joueur');
 		$req->execute(array());
 		$list=$req->fetchAll();
 	} catch(PDOException $e){
@@ -36,14 +36,14 @@ function existeJoueur($idJoueur){
 	return $compteur[0]>0;
 }
 
-function existeJoueurPsoeudo($psoeudo){
-	//donnée : psoeudo du joueur
-  //pre : psoeudo String
-	//resultat : true si un joueur éxiste avec ce psoeudo, false sinon
+function existeJoueurPseudo($pseudo){
+	//donnée : pseudo du joueur
+  //pre : pseudo String
+	//resultat : true si un joueur éxiste avec ce pseudo, false sinon
 
 	global $pdo;
 	try{
-		$req=$pdo->prepare('SELECT COUNT(*) FROM Player WHERE psoeudo=?');
+		$req=$pdo->prepare('SELECT COUNT(*) FROM Player WHERE pseudo=?');
 		$req->execute(array($idJoueur));
 		$compteur=$req->fetch();
 	} catch(PDOException $e){
@@ -71,7 +71,7 @@ function existeJoueurEmail($email){
 }
 
 function ajoutJoueur($nom,$prenom,$email,$passwd,$psoeudo,$age,$telephone,$ville){
-	//donnée : informations du joueur
+	//donnée : informations du joueur à ajouter
 	//resultat : ajoute le joueur à la bd
 
 	global $pdo;
@@ -96,6 +96,5 @@ function ajoutJoueur($nom,$prenom,$email,$passwd,$psoeudo,$age,$telephone,$ville
 	} catch(PDOException $e){
 			echo($e->getMessage());
 			die(" Erreur lors de la vérification de l'éxistence du joueur" );
-}
-	return $compteur[0]>0;
+		}
 }

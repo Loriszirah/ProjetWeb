@@ -15,27 +15,27 @@
 	</head>
 	<body>
     <h2>Profil</h2>
-    <form action="../controller/modifEtudiant.controller.php?refPromo=<?php echo $id ?>&refEtuMod=<?php echo $idEtuMod ?>" method="post" onsubmit="return informationsCorrectes();">
-      <label>Psoeudo :</label>
-  		<input type="text" value="<?php echo $psoeudo ?>"  name="psoeudo" />
+    <form action="../controller/profil.controller.php" method="post" onsubmit="return informationsCorrectes();">
+      <label>Pseudo :</label>
+  		<input type="text" value="<?php echo $pseudo ?>"  name="pseudo" required/>
       <br/>
       <label>Nom :</label>
-  		<input type="text" value="<?php echo $nom ?>"  name="nom" />
+  		<input type="text" value="<?php echo $nom ?>"  name="nom" required/>
   		<br/>
   		<label>Prénom :</label>
-  		<input type="text" value="<?php echo $prenom ?>"  name="prenom" />
+  		<input type="text" value="<?php echo $prenom ?>"  name="prenom" required/>
   		<br/>
       <label>Adresse mail :</label>
-  		<input type="text" value="<?php echo $email ?>"  name="email" />
+  		<input type="text" value="<?php echo $email ?>"  name="email" required/>
   		<br/>
       <label>Age :</label>
-  		<input type="text" value="<?php echo $age ?>"  name="age" />
+  		<input type="text" value="<?php echo $age ?>"  name="age" required/>
   		<br/>
       <label>Téléphone :</label>
-  		<input type="text" value="<?php echo $telephone ?>"  name="telephone" />
+  		<input type="text" value="<?php echo $telephone ?>"  name="telephone" required/>
   		<br/>
       <label>Ville :</label>
-  		<input type="text" value="<?php echo $ville ?>"  name="ville" />
+  		<input type="text" value="<?php echo $ville ?>"  name="ville" required/>
   		<br/>
   		<div class="form-group">
   			<label>Mot de passe : </label>
@@ -44,7 +44,7 @@
   				<label>Nouveau :</label>
   				<input type="password" name="passwd" id="passwd" />
   				<label>Confirmer :</label>
-  				<input type="password" name="futur" id="futur"/>
+  				<input type="password" name="futur" id="futur" />
   			</div>
   			<input type="button" value="Modifier" id="modifier" class="btn btn-primary" onclick="afficher();"/>
   		</div>
