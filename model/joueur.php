@@ -8,7 +8,7 @@ function getAll(){
 	try{
 		global $pdo;
 
-		$req=$pdo->prepare('SELECT * FROM Player');
+		$req=$pdo->prepare('SELECT * FROM person');
 		$req->execute(array());
 		$list=$req->fetch();
 	} catch(PDOException $e){

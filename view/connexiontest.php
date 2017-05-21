@@ -21,6 +21,7 @@
 		<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
 	</head>
 	<body>
+		<h2>joueur présent<h2>
 		<?php foreach($joueur as $jou){
 		 echo $jou["nom"];
 		}?>
