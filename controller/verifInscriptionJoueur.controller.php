@@ -25,15 +25,21 @@ require_once('../model/Joueur.php');
 
     	//On crypte le mot de passe avec un "grain de sel"
     	$passwd = crypt($passwd,$keyCryptage);
-      $idPsoeudo=existeJoueur($psoeudo);
-    	$idEmail=existeJoueur($email);
+      $idPsoeudo=existeJoueurPsoeudo($psoeudo);
+    	$idEmail=existeJoueurEmail($email);
 			//On vérifie que le joueur n'est pas déjà dans la base de données
-	    if(!$idPsoeudo>0 && !$idEmail>0){
-         ajoutJoueur($idPromo,$mail,$nom,$prenom,$passwd,$ville,$psuedo,);
+	    if(!$idPsoeudo>0){
+
+        if(!$idEmail>0){
+         ajoutJoueur($nom,$prenom,$email,$passwd,$psoeudo,$age,$telephone,$ville);
          header('Location:connexionJoueur.controller.php');
+        }
+        else{
+          echo 'ERREUR : ce mail est déjà utilisé';
+        }
       }
        else{
-			echo 'ERREUR : un compte pour cet étudiant existe déjà';
+			echo 'ERREUR : ce psoeudo est déjà utilisé';
         }
       }
     else {

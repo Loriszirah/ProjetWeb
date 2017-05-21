@@ -36,7 +36,7 @@
           </div>
 					<div id="connexion" class="row">
 						<div class="bg-color-info col-sm-12 centrer ">
-						<a href="../controller/connexiontest.controller.php" class="btn btn-primary btn-lg" role="button">Connexion Joueur</a>
+						<a href="../controller/connexionJoueur.controller.php" class="btn btn-primary btn-lg" role="button">Connexion Joueur</a>
 						<a href="../controller/connexionOrganisateur.controller.php" class="btn btn-primary btn-lg" role="button">Connexion Organisateur</a>
 						<a href="../controller/connexionAdmin.controller.php" class="btn btn-primary btn-lg" role="button">Connexion Admin</a>
 					</div>
