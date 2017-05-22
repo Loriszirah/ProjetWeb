@@ -25,7 +25,7 @@
 													<h3 class="panel-title centrer">Inscription Joueur</h3>
 											</div>
 											<div class="panel-body">
-													<form action="../controller/verifInscriptionJoueur.controller.php" method="post" onsubmit="return (verifInfoJoueur()   verifPassword());" role="form">
+													<form action="../controller/verifInscriptionJoueur.controller.php" method="post" onsubmit="return verifPassword();" role="form">
 															<fieldset>
 																	<div class="form-group">
 																			<label>Nom : </label>
