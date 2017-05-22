@@ -25,6 +25,10 @@ require_once('../model/Joueur.php');
     	$passwd = crypt($passwd,$keyCryptage);
       $idPseudo=existeJoueurPseudo($pseudo);
     	$idEmail=existeJoueurEmail($email);
+
+      var_dump('pseudo exists : ' + $idPseudo);
+      var_dump('mail exists : ' + $idEmail);
+      
 			//On vérifie que le joueur n'est pas déjà dans la base de données
 	    if(!$idPseudo){
         if(!$idEmail){
