@@ -2,6 +2,7 @@
 require_once('../model/connexionBD.php');
 require_once('../model/Joueur.php');
 
+  ini_set('display_errors',1);
 
   //TODO : mettre ces variables dans un fichier .env
   $key = "vOlleYYBallzTournAm1ntOrgAN1SatAurE";
@@ -35,7 +36,7 @@ require_once('../model/Joueur.php');
         }
       }
        else{
-			echo 'ERREUR : ce psoeudo est déjà utilisé';
+			echo 'ERREUR : ce pseudo est déjà utilisé';
         }
       }
  else{
