@@ -3,8 +3,6 @@ require_once('../model/connexionBD.php');
 require_once('../model/joueur.php');
 require_once('../model/personne.php')
 
-  ini_set('display_errors',1);
-
   //TODO : mettre ces variables dans un fichier .env
   $key = "vOlleYYBallzTournAm1ntOrgAN1SatAurE";
   $keyCryptage= "ProJa1TWeib";
