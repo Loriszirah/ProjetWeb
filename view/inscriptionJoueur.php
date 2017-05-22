@@ -57,11 +57,11 @@
 																	</div>
 																	<div class="form-group">
 																			<label>Mot de passe : </label>
-																			<input type="password" class="form-control" name="passwd" required />
+																			<input type="password" class="form-control" name="passwd" id="passwd" required />
 																	</div>
 																	<div class="form-group">
 																			<label>Confirmation mot de passe : </label>
-																			<input type="password" class="form-control" name="passwdconf" />
+																			<input type="password" class="form-control" id="passwdconf" name="passwdconf" />
 																	</div>
 																	<input type="submit" class="btn btn-lg btn-success btn-block" value="S'inscrire" />
 															</fieldset>
