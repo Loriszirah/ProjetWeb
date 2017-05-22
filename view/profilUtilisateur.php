@@ -50,9 +50,10 @@
   		</div>
   		<input type="submit" value="Enregistrer" class="btn btn-success"/>
   	</form>
+		<a href="../controller/pageUtilisateur.controller.php?" class="btn btn-default" ><i class="fa fa-arrow-left" aria-hidden="true"></i> Retour</a>
 		<!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
 		<!-- JQUERY SCRIPTS -->
-		<script src="../assets/js/jquery-1.10.2.js"></script>
+		<script src="../assets/js/jquery-3.2.1.min.js"></script>
 		<!-- BOOTSTRAP SCRIPTS -->
 		<script src="../assets/js/bootstrap.min.js"></script>
 		<!-- METISMENU SCRIPTS -->

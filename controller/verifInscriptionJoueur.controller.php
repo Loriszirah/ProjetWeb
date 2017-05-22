@@ -1,6 +1,7 @@
 <?php
 require_once('../model/connexionBD.php');
-require_once('../model/Joueur.php');
+require_once('../model/joueur.php');
+require_once('../model/personne.php')
 
 
   //TODO : mettre ces variables dans un fichier .env
@@ -22,8 +23,8 @@ require_once('../model/Joueur.php');
 
     	//On crypte le mot de passe avec un "grain de sel"
     	$passwd = crypt($passwd,$keyCryptage);
-      $idPseudo=existeJoueurPseudo($pseudo);
-    	$idEmail=existeJoueurEmail($email);
+      $idPseudo=existePersonnePseudo($pseudo);
+    	$idEmail=existePersonneEmail($email);
 			//On vérifie que le joueur n'est pas déjà dans la base de données
 	    if(!$idPseudo){
         if(!$idEmail){

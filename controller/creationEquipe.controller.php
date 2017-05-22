@@ -8,13 +8,11 @@
 
   //TODO: mettre dans un fichier .env
   $key = "vOlleYYBallzTournAm1ntOrgAN1SatAurE";
-  $keyCryptage= "ProJa1TWeib";
 
    //On vérifie que l'utilisateur est déjà connecté
    if(!isset($_COOKIE["token"])){
-
-            // On le redirige vers la page d'accueil
-            header('Location:pageAccueil.controller.php');
+          // On le redirige vers la page d'accueil
+          header('Location:pageAccueil.controller.php');
     }
     else{
       //On décode le token

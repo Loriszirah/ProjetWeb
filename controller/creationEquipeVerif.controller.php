@@ -3,6 +3,7 @@
   require_once('../model/token.php');
   require_once('../model/connexionBD.php');
   require_once('../model/utilisateur.php');
+  require_once('../model/equipe.php');
   use \Firebase\JWT\JWT;
 
 
@@ -24,18 +25,18 @@
       //On vérifie que c'est un token valide
       if (verificationToken($decoded_array)){
         if($decoded_array['role']==="joueur"){
-          if(isset($_POST["nomEquipe"]) && empty($_POST["nomEquipe"])){
-            $nomEquipe=htmlspecialchars($_POST["nomEquipe"])
+          if(isset($_POST['nomEquipe']) && !empty($_POST['nomEquipe'])){
+            $nomEquipe=htmlspecialchars($_POST['nomEquipe']);
             if(!existeEquipe($nomEquipe)){
               $idJoueur=$decoded_array['id'];
-              ajouterEquipe($nomEquipe,$idJoueur);
+              ajoutEquipe($nomEquipe,$idJoueur);
               $ajout=true;
             }
             else{
               $ajout=false;
             }
           }
-          require_once('../view/creationEquipe.php');
+          require_once('../controller/creationEquipe.controller.php');
         }
         else{
           // On le redirige vers la page admin ou utilisateur (si c'est un organisateur)

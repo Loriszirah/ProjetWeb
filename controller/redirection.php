@@ -13,7 +13,7 @@
          else{
 
            //TODO: mettre dans un fichier .env
-           $key = "ceSera1cLERiasEcP0UrP1Sc1nE";
+           $key="vOlleYYBallzTournAm1ntOrgAN1SatAurE";
 
            //On décode le token
            $decoded = JWT::decode($_COOKIE["token"], $key, array('HS256'));
@@ -33,8 +33,7 @@
            }//endif
            //Cookie incorrect, on supprime le cookie et on renvoie l'utilisateur sur la page d'accueil
            else{
-             // Suppression du cookie user
-             // Set expiration time to -1hr (will cause browser deletion)
+             // Suppression du cookie user (pour cela on met son temps d'expiration négatif)
              setcookie('token', '', time()-10000000, '/');
              // Unset key
              unset($_COOKIE["token"]);

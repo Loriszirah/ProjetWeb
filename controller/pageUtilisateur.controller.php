@@ -2,6 +2,7 @@
   require_once('../vendor/autoload.php');
   require_once('../model/token.php');
   require_once('../model/connexionBD.php');
+  require_once('../model/utilisateur.php');
   use \Firebase\JWT\JWT;
 
 
@@ -22,7 +23,7 @@
       //On vérifie que c'est un token valide
       if (verificationToken($decoded_array)){
         if($decoded_array['role']==="joueur" || $decoded_array['role']==="organisateur"){
-          $prenom=getPsoeudoUtilisateur($decoded_array['id']);
+          $pseudo=getPseudoUtilisateur($decoded_array['id']);
           $role=$decoded_array['role'];
 
           include('../view/pageUtilisateur.php');

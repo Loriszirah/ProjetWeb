@@ -25,7 +25,9 @@ function existeJoueur($email, $password){
 
 	global $pdo;
 	try{
-		$req=$pdo->prepare('SELECT COUNT(*) FROM Personne
+		$req=$pdo->prepare('SELECT COUNT(*) FROM Personne p
+																				INNER JOIN Utilisateur u ON u.idPersonne=p.idPersonne
+																				INNER JOIN Joueur j ON j.idPersonne=p.idPersonne
 																				WHERE email=? AND password=?');
 		$req->execute(array($email, $password));
 		$compteur=$req->fetch();
@@ -48,15 +50,12 @@ function existeJoueurPseudo($pseudo){
 
 	global $pdo;
 	try{
-		$req=$pdo->prepare('SELECT COUNT(*) FROM Joueur j
-																				INNER JOIN Utilisateur u ON j.idPersonne=u.idPersonne
-																				INNER JOIN Personne p ON p.idPersonne=u.idPersonne
-																				WHERE pseudo=?');
+		$req=$pdo->prepare('SELECT COUNT(*) FROM Personne WHERE pseudo=?');
 		$req->execute(array($pseudo));
 		$compteur=$req->fetch();
 	} catch(PDOException $e){
 			echo($e->getMessage());
-			die(" Erreur lors de la vérification de l'éxistence du joueur" );
+			die(" Erreur lors de la vérification de l'éxistence du joueur ce pseudo" );
 }
 	return $compteur[0]>0;
 }
@@ -68,17 +67,34 @@ function existeJoueurEmail($email){
 
 	global $pdo;
 	try{
-		$req=$pdo->prepare('SELECT COUNT(*) FROM Joueur j
-																				INNER JOIN Utilisateur u ON j.idPersonne=u.idPersonne
-																				INNER JOIN Personne p ON p.idPersonne=u.idPersonne
-																				WHERE email=?');
+		$req=$pdo->prepare('SELECT COUNT(*) FROM Personne WHERE email=?');
 		$req->execute(array($email));
 		$compteur=$req->fetch();
 	} catch(PDOException $e){
 			echo($e->getMessage());
-			die(" Erreur lors de la vérification de l'éxistence du joueur" );
+			die(" Erreur lors de la vérification de l'éxistence du joueur avec cet email" );
 }
 	return $compteur[0]>0;
+}
+
+function getJoueurEmail($email){
+	//donnée : email du joueur
+  //pre : email String
+	//resultat : l'id du joueur correspondant à cet email
+
+	global $pdo;
+	try{
+		$req=$pdo->prepare('SELECT p.idPersonne FROM Personne p
+																					INNER JOIN Utilisateur u ON u.idPersonne=p.idPersonne
+																					INNER JOIN Joueur j ON j.idPersonne=p.idPersonne
+																					WHERE email=?');
+		$req->execute(array($email));
+		$idJoueur=$req->fetch();
+	} catch(PDOException $e){
+			echo($e->getMessage());
+			die(" Erreur lors de la recherche du joueur avec cet email" );
+}
+	return $idJoueur[0];
 }
 
 function ajoutJoueur($nom,$prenom,$email,$passwd,$pseudo,$age,$telephone,$ville){
@@ -94,15 +110,15 @@ function ajoutJoueur($nom,$prenom,$email,$passwd,$pseudo,$age,$telephone,$ville)
 		/* Selection de l'id du joueur ajouté */
 		$req=$pdo->prepare('SELECT idPersonne FROM Personne WHERE pseudo=?');
 		$req->execute(array($pseudo));
-		$idPersonne=(int)$req->fetch();
+		$idPersonne=$req->fetch();
 
 		/* Ajout du joueur dans Utilisateur */
 		$req=$pdo->prepare('INSERT INTO Utilisateur(idPersonne,age,telephone,ville) VALUES (?,?,?,?)');
-		$req->execute(array($idPersonne,$age,$telephone,$ville));
+		$req->execute(array($idPersonne[0],$age,$telephone,$ville));
 
 		/* Ajout du joueur dans Joueur */
 		$req=$pdo->prepare('INSERT INTO Joueur(idPersonne) VALUES (?)');
-		$req->execute(array($idPersonne));
+		$req->execute(array($idPersonne[0]));
 
 	} catch(PDOException $e){
 			echo($e->getMessage());

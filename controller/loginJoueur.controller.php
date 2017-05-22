@@ -12,20 +12,18 @@
    //On vérifie que l'utilisateur n'est pas déjà connecté
    if(!isset($_COOKIE["token"])){
             //On vérifie que les champs ne soient pas vide et non null.
-            if(isset($_POST['email']) && isset($_POST['passwd']) && !empty($_POST['email']) && !empty($_POST['passwd']) ){
+            if(isset($_POST['email']) && isset($_POST['password']) && !empty($_POST['email']) && !empty($_POST['password']) ){
 
               //Sécurisation des données saisies
               $email = htmlspecialchars ($_POST['email']);
-              $password = htmlspecialchars ($_POST['passwd']);
+              $password = htmlspecialchars ($_POST['password']);
 
                 //On crypte le mot de passe avec un "grain de sel"
                 $password = crypt($password,$keyCryptage);
-                existeJoueur($email, $password);
-                $existe=existeJoueur($email, $password);
-                echo($existe);
 
                 //On vérifie que le login existe dans la table et que les informations soient exactes. (BD.password==passwd && BD.email==email)
                 if (existeJoueur($email, $password)){
+                    $id=getJoueurEmail($email);
                     //On définit le token contenant les différentes informations.
                     $token = array(
                         "iss" => $_SERVER['HTTP_HOST'],
@@ -44,16 +42,17 @@
                 }
                 else{
                   echo ("ERREUR : tu as rentré un mauvais login/mot de passe");
-                  include('../view/connexionJoueur.php');
+                  //include('../view/connexionJoueur.php');
                 }
             }//endif isset(variables)
             else {
+              echo("salut");
               // Cas où la personne passe directement ici par l'url et n'est pas connecté
-              header('Location:pageAccueil.controller.php');
+              //header('Location:pageAccueil.controller.php');
             }
     } //endif !isset(COOKIE)
     else {
         // Cas où la personne est déjà connecté
-        header('Location:redirection.php');
+        //header('Location:redirection.php');
     }
 ?>

@@ -12,7 +12,7 @@ function existeEquipe($nomEquipe){
 		$compteur=$req->fetch();
 	} catch(PDOException $e){
 			echo($e->getMessage());
-			die(" Erreur lors de la vérification de l'éxistence de l'équipe" );
+			die("Erreur lors de la vérification de l'éxistence de l'équipe" );
 }
 	return $compteur[0]>0;
 }
@@ -25,6 +25,14 @@ function ajoutEquipe($nomEquipe,$idCapitaine){
 	try{
 		$req=$pdo->prepare('INSERT INTO Equipe(nom,idPersonne) VALUES (?,?)');
 		$req->execute(array($nomEquipe,$idCapitaine));
+
+		$req=$pdo->prepare('SELECT idEquipe FROM Equipe WHERE nom=?');
+		$req->execute(array($nomEquipe));
+		$idEquipe=$req->fetch();
+
+		$req=$pdo->prepare('INSERT INTO Appartenir(idPersonne,idEquipe) VALUES (?,?)');
+		$req->execute(array($idCapitaine,$idEquipe[0]));
+
 	} catch(PDOException $e){
 			echo($e->getMessage());
 			die(" Erreur lors l'ajout de l'équipe" );
@@ -37,14 +45,14 @@ function getAllEquipes($idJoueur){
 
   global $pdo;
   try{
-    $req=$pdo->prepare('SELECT DISTINCT t.nom,t.idPersonne FROM Equipe e
-                        INNER JOIN Appartenir a ON a.idEquipe=e.idEquipe
-                        WHERE a.idPersonne=?');
+    $req=$pdo->prepare('SELECT nom,idPersonne,idEquipe FROM Equipe
+                        WHERE idEquipe IN
+												(SELECT idEquipe FROM Appartenir WHERE idPersonne=?)');
     $req->execute(array($idJoueur));
-    $list=$req->fecthAll();
+    $list=$req->fetchAll();
   } catch(PDOException $e){
 			echo($e->getMessage());
-			die(" Erreur lors de la vérification de l'éxistence de l'équipe" );
+			die(" Erreur lors de la récupération de toutes les équipes du joueur" );
     }
   return $list;
 }
@@ -62,7 +70,7 @@ function getEquipe($idEquipe){
 			echo($e->getMessage());
 			die(" Erreur lors la recherche de l'équipe" );
   }
-  return $equipe
+  return $equipe;
 }
 
 
