@@ -29,7 +29,7 @@ ini_set('display_errors',1);
 	    if(!$idPseudo){
         if(!$idEmail){
          ajoutJoueur($nom,$prenom,$email,$passwd,$pseudo,$age,$telephone,$ville);
-         header('Location:connexionJoueur.controller.php');
+         header('../controller/connexionJoueur.controller.php');
         }
         else{
           echo 'ERREUR : ce mail est déjà utilisé';
