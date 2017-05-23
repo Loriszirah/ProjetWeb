@@ -13,8 +13,6 @@
 		<link href="../assets/css/bootstrap.css" rel="stylesheet" />
 		<!-- MetisMenu CSS -->
 		<link	href="https://cdnjs.cloudflare.com/ajax/libs/metisMenu/2.6.1/metisMenu.min.css" rel="stylesheet">
-		<!-- FONTAWESOME STYLES-->
-		<link href="../assets/css/font-awesome.css" rel="stylesheet" />
 		<!-- CUSTOM STYLES-->
 		<link href="../assets/css/custom.css" rel="stylesheet" />
 		<!-- GOOGLE FONTS-->

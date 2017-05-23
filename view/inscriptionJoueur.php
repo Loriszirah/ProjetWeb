@@ -6,9 +6,6 @@
 		<title>Inscription Joueur</title>
 		<!-- BOOTSTRAP STYLES-->
 		<link href="../assets/css/bootstrap.css" rel="stylesheet" />
-		<!-- FONTAWESOME STYLES-->
-		<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
-		<link href="../assets/css/font-awesome.css" rel="stylesheet" />
 		<!-- CUSTOM STYLES-->
 		<link href="../assets/css/custom.css" rel="stylesheet" !important/>
 		<!-- GOOGLE FONTS-->
@@ -74,7 +71,7 @@
 		<!-- /. WRAPPER  -->
 		<!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
 		<!-- JQUERY SCRIPTS -->
-		<script src="../assets/js/jquery-3.2.1.min.js"></script>	
+		<script src="../assets/js/jquery-3.2.1.min.js"></script>
 		<!-- BOOTSTRAP SCRIPTS -->
 		<script src="../assets/js/bootstrap.min.js"></script>
 		<!-- CUSTOM SCRIPTS -->

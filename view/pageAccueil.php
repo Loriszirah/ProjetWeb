@@ -5,13 +5,11 @@
 		<title>Volley-Ball tournament organizator</title>
 		<!-- BOOTSTRAP STYLES-->
 		<link href="../assets/css/bootstrap.css" rel="stylesheet" />
-		<!-- FONTAWESOME STYLES-->
-		<link href="../assets/css/font-awesome.css" rel="stylesheet" />
 		<!-- CUSTOM STYLES-->
 		<link href="../assets/css/perso.css" rel="stylesheet" />
 		<link href="../assets/css/custom.css" rel="stylesheet" />
 		<!-- GOOGLE FONTS-->
-		
+
 	</head>
 	<body>
 		<div id="wrapper">
