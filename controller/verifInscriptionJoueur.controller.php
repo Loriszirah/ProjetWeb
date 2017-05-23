@@ -1,7 +1,7 @@
 <?php
 require_once('../model/connexionBD.php');
 require_once('../model/joueur.php');
-require_once('../model/personne.php')
+require_once('../model/personne.php');
 
   //TODO : mettre ces variables dans un fichier .env
   $key = "vOlleYYBallzTournAm1ntOrgAN1SatAurE";
@@ -28,7 +28,7 @@ require_once('../model/personne.php')
 	    if(!$idPseudo){
         if(!$idEmail){
          ajoutJoueur($nom,$prenom,$email,$passwd,$pseudo,$age,$telephone,$ville);
-         header('../controller/connexionJoueur.controller.php');
+         header('Location:connexionJoueur.controller.php');
         }
         else{
           echo 'ERREUR : ce mail est déjà utilisé';
