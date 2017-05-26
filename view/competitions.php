@@ -43,12 +43,12 @@
 											<tr>
 												<td><?php echo $i; $i+=1 ?></td>
 												<td><?php echo $competition['nom'] ?></td>
-												<td><?php echo $competition['dateDebut'] ?></td>
+												<td><?php echo $competition['datedebut'] ?></td>
 			                  <td><?php echo $competition['prix'] ?></td>
-			                  <td><?php echo $competition['nbEquipes'] ?></td>
-			                  <td><?php echo $competition['typeCompetition'] ?></td>
-												<?php if($idJoueur==$competition['idPersonne']){//on affiche le bouton de supprimer seulement si c'est le capitaine?>
-														<td><a class="btn btn-danger btn-block" href="../controller/competitions.controller.php?refCompetitionSupp=<?php echo $competition['idCompetition'] ?>">Supprimer</a></td>
+			                  <td><?php echo $competition['nbequipes'] ?></td>
+			                  <td><?php echo $competition['typecompetition'] ?></td>
+												<?php if($idJoueur==$competition['idpersonne']){//on affiche le bouton de supprimer seulement si c'est le capitaine?>
+														<td><a class="btn btn-danger btn-block" href="../controller/competitions.controller.php?refCompetitionSupp=<?php echo $competition['idcompetition'] ?>">Supprimer</a></td>
 			                  <?php } ?>
 			                </tr>
 			              <?php } ?>

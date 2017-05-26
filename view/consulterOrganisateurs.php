@@ -43,7 +43,7 @@
                         <td><?php echo $organisateur['pseudo'] ?></td>
       									<td><?php echo $organisateur['email'] ?></td>
                         <td><?php echo $organisateur['telephone'] ?></td>
-      									<td><a class="btn btn-danger btn-block" href="../controller/consulterOrganisateurs.controller.php?refOrganisateurSupp=<?php echo $organisateur['idPersonne'] ?>">Supprimer</a></td>
+      									<td><a class="btn btn-danger btn-block" href="../controller/consulterOrganisateurs.controller.php?refOrganisateurSupp=<?php echo $organisateur['idpersonne'] ?>">Supprimer</a></td>
                       </tr>
                     <?php } ?>
                   </table>

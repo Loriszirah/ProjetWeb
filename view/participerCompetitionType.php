@@ -45,11 +45,11 @@
 												<td><?php echo $i; $i+=1; ?></td>
 												<td><?php echo $competition['nom'] ?></td>
 												<td><?php echo $competition['adresse'] ?></td>
-												<td><?php echo $competition['dateDebut'] ?></td>
-			                  <td><?php echo $competition['nbEquipes'] ?></td>
+												<td><?php echo $competition['datedebut'] ?></td>
+			                  <td><?php echo $competition['nbequipes'] ?></td>
 												<td><?php echo $competition['prix'] ?></td>
-			                  <td><a class="btn btn-primary btn-block" href="../controller/infosCompetition.controller.php?refCompetition=<?php echo $competition['idCompetition'] ?>&refType=<?php echo $type ?>">Voir</a></td>
-												<td><a class="btn btn-primary btn-block" href="../controller/inscriptionCompetition.controller.php?refCompetition=<?php echo $competition['idCompetition'] ?>">S'inscrire</a></td>
+			                  <td><a class="btn btn-primary btn-block" href="../controller/infosCompetition.controller.php?refCompetition=<?php echo $competition['idcompetition'] ?>&refType=<?php echo $type ?>">Voir</a></td>
+												<td><a class="btn btn-primary btn-block" href="../controller/inscriptionCompetition.controller.php?refCompetition=<?php echo $competition['idcompetition'] ?>">S'inscrire</a></td>
 											</tr>
 			              <?php }?>
 				          </table>

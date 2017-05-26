@@ -41,8 +41,8 @@
       									<td><?php echo $i; $i+=1 ?></td>
       									<td><?php echo $administrateur['pseudo'] ?></td>
       									<td><?php echo $administrateur['email'] ?></td>
-												<?php if($idAdministrateur!=$administrateur['idPersonne']){ ?>
-													<td><a class="btn btn-danger btn-block" href="../controller/consulterEquipes.controller.php?refAdminSupp=<?php echo $administrateur['idPersonne'] ?>">Supprimer</a></td>
+												<?php if($idAdministrateur!=$administrateur['idpersonne']){ ?>
+													<td><a class="btn btn-danger btn-block" href="../controller/consulterEquipes.controller.php?refAdminSupp=<?php echo $administrateur['idpersonne'] ?>">Supprimer</a></td>
 												<?php }else{ ?>
 													<td></td>
 												<?php } ?>

@@ -31,7 +31,7 @@
             if(existeEquipeid($idEquipe)){
               $infosEquipe=getInfosEquipe($idEquipe);
               //On ne peut supprimer une équipe que si on est capitaine
-              if($infosEquipe['idPersonne']==$idJoueur){
+              if($infosEquipe['idpersonne']==$idJoueur){
                 deleteEquipe($idEquipe);
               }
             }
@@ -48,7 +48,7 @@
                 header('Location:gererEquipes.controller.php');
               }
           }
-          $equipes=getTestIdPostgre();
+          $equipes=getAllEquipesJoueur($idJoueur);
           require_once('../view/gererEquipes.php');
         }
         else{

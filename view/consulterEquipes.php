@@ -43,7 +43,7 @@
                         <td><?php echo $equipe['nom'] ?></td>
       									<td><?php echo $equipe['pseudo'] ?></td>
       									<td><?php echo $equipe['telephone'] ?></td>
-      									<td><a class="btn btn-danger btn-block" href="../controller/consulterEquipes.controller.php?refEquipeSupp=<?php echo $equipe['idEquipe'] ?>">Supprimer</a></td>
+      									<td><a class="btn btn-danger btn-block" href="../controller/consulterEquipes.controller.php?refEquipeSupp=<?php echo $equipe['idequipe'] ?>">Supprimer</a></td>
                       </tr>
                     <?php } ?>
       	          </table>

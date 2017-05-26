@@ -31,7 +31,7 @@
             if(existeCompetition($idCompetition)){
               $equipe=getInfosEquipeParticipantCompetition($idJoueur,$idCompetition);
               //On ne peut supprimer une équipe d'une compétition que si on est capitaine
-              if($equipe['idPersonne']==$idJoueur){
+              if($equipe['idpersonne']==$idJoueur){
                 deleteEquipeCompetition($idCompetition,$idEquipe);
               }
             }

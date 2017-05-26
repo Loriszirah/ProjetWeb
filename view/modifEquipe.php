@@ -66,10 +66,10 @@
 	    									<td><?php echo $membre['prenom'] ?></td>
 	                      <td><?php echo $membre['age'] ?></td>
 												<td><?php echo $membre['pseudo'] ?></td>
-	    									<?php if($idJoueur==$equipe['idPersonne']){ //on affiche le bouton d'exclusion seulement si c'est le capitaine
-	                              if($idJoueur!=$membre['idPersonne']){//on affiche le bouton pour deleguer son statut de capitaine que s'il est capitaine et que ce n'est pas lui le membre de la boucle for ?>
-		                              <td><a class="btn btn-danger btn-block" href="../controller/modifEquipe.controller.php?refEquipe=<?php echo $idEquipe ?> &refNewMembreCap=<?php echo $membre['idPersonne'] ?>">Elire capitaine</a></td>
-																	<td><a class="btn btn-danger btn-block" href="../controller/modifEquipe.controller.php?refEquipe=<?php echo $idEquipe ?> &refMembreSupp=<?php echo $membre['idPersonne'] ?>">Exclure</a></td>
+	    									<?php if($idJoueur==$equipe['idpersonne']){ //on affiche le bouton d'exclusion seulement si c'est le capitaine
+	                              if($idJoueur!=$membre['idpersonne']){//on affiche le bouton pour deleguer son statut de capitaine que s'il est capitaine et que ce n'est pas lui le membre de la boucle for ?>
+		                              <td><a class="btn btn-danger btn-block" href="../controller/modifEquipe.controller.php?refEquipe=<?php echo $idEquipe ?> &refNewMembreCap=<?php echo $membre['idpersonne'] ?>">Elire capitaine</a></td>
+																	<td><a class="btn btn-danger btn-block" href="../controller/modifEquipe.controller.php?refEquipe=<?php echo $idEquipe ?> &refMembreSupp=<?php echo $membre['idpersonne'] ?>">Exclure</a></td>
 																<?php }
 																else { ?>
 																	<td></td>
@@ -77,7 +77,7 @@
 																<?php }
 															} else if($idJoueur==$membre['idPersonne']){ //on affiche le bouton pour quitter l'équipe seulement si ce joueur correspond au joueur connecté et qu'il n'est pas capitaine ?>
 																	<td></td>
-																	<td><a class="btn btn-danger btn-block" href="../controller/modifEquipe.controller.php?refEquipe=<?php echo $idEquipe ?> &refMembreSupp=<?php echo $membre['idPersonne'] ?>">Quitter</a></td>
+																	<td><a class="btn btn-danger btn-block" href="../controller/modifEquipe.controller.php?refEquipe=<?php echo $idEquipe ?> &refMembreSupp=<?php echo $membre['idpersonne'] ?>">Quitter</a></td>
 	                      <?php } ?>
 	                    </tr>
 										<?php } ?>

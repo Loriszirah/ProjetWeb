@@ -43,7 +43,7 @@
       									<td><?php echo $joueur['pseudo'] ?></td>
       									<td><?php echo $joueur['email'] ?></td>
                         <td><?php echo $joueur['telephone'] ?></td>
-      									<td><a class="btn btn-danger btn-block" href="../controller/consulterJoueurs.controller.php?refJoueurSupp=<?php echo $joueur['idPersonne'] ?>">Supprimer</a></td>
+      									<td><a class="btn btn-danger btn-block" href="../controller/consulterJoueurs.controller.php?refJoueurSupp=<?php echo $joueur['idpersonne'] ?>">Supprimer</a></td>
                       </tr>
                     <?php } ?>
       	          </table>

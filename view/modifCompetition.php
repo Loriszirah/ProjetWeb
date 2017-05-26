@@ -51,8 +51,8 @@
 												<td><?php echo $equipe['pseudo'] ?></td>
 			                  <td><?php echo $equipe['email'] ?></td>
 												<td><?php echo $equipe['telephone'] ?></td>
-												<td><a class="btn btn-primary btn-block" href="../controller/infosEquipe.controller.php?refEquipe=<?php echo $equipe['idEquipe'] ?>">Détails</a></td>
-												<td><a class="btn btn-danger btn-block" href="../controller/modifCompetition.controller.php?refEquipeSupp=<?php echo $equipe['idEquipe'] ?>">Supprimer</a></td>
+												<td><a class="btn btn-primary btn-block" href="../controller/infosEquipe.controller.php?refEquipe=<?php echo $equipe['idequipe'] ?>">Détails</a></td>
+												<td><a class="btn btn-danger btn-block" href="../controller/modifCompetition.controller.php?refEquipeSupp=<?php echo $equipe['idequipe'] ?>">Supprimer</a></td>
 			                </tr>
 			              <?php } ?>
 				          </table>

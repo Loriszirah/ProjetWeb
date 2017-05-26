@@ -34,7 +34,7 @@
               if(isset($_POST['nom']) && !empty($_POST['nom'])){
                 $nom=htmlspecialchars($_POST['nom']);
                 if(!existeEquipe($nom)){
-                  if($idJoueur=$equipe['idPersonne']){
+                  if($idJoueur=$equipe['idpersonne']){
                     setNomEquipe($idEquipe,$nom);
                     $equipe=getInfosEquipe($idEquipe);
                   }
@@ -46,8 +46,8 @@
               if(isset($_GET['refNewMembreCap']) && !empty($_GET['refNewMembreCap'])){
                 $idNewJoueur=htmlspecialchars($_GET['refNewMembreCap']);
                 if(existeJoueurEquipeId($idEquipe,$idNewJoueur)){
-                  if($idNewJoueur!=$equipe['idPersonne']){
-                    if($idJoueur==$equipe['idPersonne']){
+                  if($idNewJoueur!=$equipe['idpersonne']){
+                    if($idJoueur==$equipe['idpersonne']){
                         deleguerCapitaine($idEquipe,$idNewJoueur);
                         header("Refresh:0");
                     }

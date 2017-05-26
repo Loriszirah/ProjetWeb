@@ -46,10 +46,10 @@
                         <td><?php echo $competition['nom'] ?></td>
                         <td><?php echo $competition['pseudo'] ?></td>
       									<td><?php echo $competition['telephone'] ?></td>
-                        <td><?php echo $competition['dateDebut'] ?></td>
+                        <td><?php echo $competition['datedebut'] ?></td>
                         <td><?php echo $competition['prix'] ?></td>
-                        <td><?php echo $competition['nbEquipes'] ?></td>
-      									<td><a class="btn btn-danger btn-block" href="../controller/consulterCompetitions.controller.php?refCompetitionSupp=<?php echo $competition['idCompetition'] ?>">Supprimer</a></td>
+                        <td><?php echo $competition['nbequipes'] ?></td>
+      									<td><a class="btn btn-danger btn-block" href="../controller/consulterCompetitions.controller.php?refCompetitionSupp=<?php echo $competition['idcompetition'] ?>">Supprimer</a></td>
                       </tr>
                     <?php } ?>
       	          </table>

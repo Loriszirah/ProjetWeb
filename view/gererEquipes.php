@@ -36,12 +36,14 @@
 											?>
 											<tr>
 												<td><?php echo $i; $i+=1 ?></td>
-												<td><?php echo $equipe['idequipe']?></td>
-			                  <td><a class="btn btn-primary btn-block" href="../controller/modifEquipe.controller.php?refEquipe=<?php echo $equipe['idEquipe'] ?>">Gerer</a></td>
-												<?php if($idJoueur==$equipe['idPersonne']){//on affiche le bouton de supprimer seulement si c'est le capitaine?>
-														<td><a class="btn btn-danger btn-block" href="../controller/gererEquipes.controller.php?refEquipeSupp=<?php echo $equipe['idEquipe'] ?>">Supprimer</a></td>
+												<td><?php echo $equipe['nom'] ?></td>
+												<td><?php echo $equipe['pseudo'] ?></td>
+												<td><?php echo $equipe['telephone']?></td>
+			                  <td><a class="btn btn-primary btn-block" href="../controller/modifEquipe.controller.php?refEquipe=<?php echo $equipe['idequipe'] ?>">Gerer</a></td>
+												<?php if($idJoueur==$equipe['idpersonne']){//on affiche le bouton de supprimer seulement si c'est le capitaine?>
+														<td><a class="btn btn-danger btn-block" href="../controller/gererEquipes.controller.php?refEquipeSupp=<?php echo $equipe['idequipe'] ?>">Supprimer</a></td>
 												<?php }else{ ?>
-														<td><a class="btn btn-danger btn-block" href="../controller/gererEquipes.controller.php?refEquipeQuit=<?php echo $equipe['idEquipe'] ?>">Quitter</a></td>
+														<td><a class="btn btn-danger btn-block" href="../controller/gererEquipes.controller.php?refEquipeQuit=<?php echo $equipe['idequipe'] ?>">Quitter</a></td>
 													<?php } ?>
 			                </tr>
 			              <?php } ?>

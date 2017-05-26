@@ -42,12 +42,12 @@
 											?>
 											<tr>
 												<td><?php echo $i; $i+=1 ?></td>
-												<td><?php echo $competition['nomCompetition'] ?></td>
-												<td><?php echo $competition['dateDebut'] ?></td>
+												<td><?php echo $competition['nomcompetition'] ?></td>
+												<td><?php echo $competition['datedebut'] ?></td>
 												<td><?php echo $competition['adresse'] ?></td>
-			                  <td><?php echo $competition['libelleTypeCompetition'] ?></td>
-			                  <td><a class="btn btn-primary btn-block" href="../controller/modifCompetition.controller.php?refCompet=<?php echo $competition['idCompetition'] ?>">Gerer</a></td>
-												<td><a class="btn btn-danger btn-block" href="../controller/gererCompetitions.controller.php?refCompetSupp=<?php echo $competition['idCompetition'] ?>">Supprimer</a></td>
+			                  <td><?php echo $competition['libelletypecompetition'] ?></td>
+			                  <td><a class="btn btn-primary btn-block" href="../controller/modifCompetition.controller.php?refCompet=<?php echo $competition['idcompetition'] ?>">Gerer</a></td>
+												<td><a class="btn btn-danger btn-block" href="../controller/gererCompetitions.controller.php?refCompetSupp=<?php echo $competition['idcompetition'] ?>">Supprimer</a></td>
 			                </tr>
 			              <?php } ?>
 				          </table>

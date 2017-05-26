@@ -20,11 +20,11 @@
 			<div id="page-wrapper">
         <div id="page-inner">
 					<h2 class="titrePage">Nom de la compétition : <?php echo $competition['nom'] ?></h2>
-			    <p>La competition se déroule le <?php echo $competition['dateDebut'] ?> à l'adresse <?php echo $competition['adresse'] ?>.</p>
-					<p>Les matchs seront du <?php echo $competition['libelleType'] ?>. La compétition peut accueillir <?php echo $competition['nbEquipes'] ?> équipes et il y a actuellement <?php echo $nbEquipesInscrites ?> équipes actuellement inscrites.</p>
+			    <p>La competition se déroule le <?php echo $competition['datedebut'] ?> à l'adresse <?php echo $competition['adresse'] ?>.</p>
+					<p>Les matchs seront du <?php echo $competition['libelleType'] ?>. La compétition peut accueillir <?php echo $competition['nbequipes'] ?> équipes et il y a actuellement <?php echo $nbEquipesInscrites ?> équipes actuellement inscrites.</p>
 			    <h3>Description de la compétition : </h3>
 			    <p><?php echo $competition['description'] ?></p>
-			    <a href="../controller/inscriptionCompetition.controller.php?refCompetition=<?php echo $competition['idCompetition'] ?>" class="btn btn-default" ><i class="fa fa-arrow-left" aria-hidden="true"></i> Participer</a>
+			    <a href="../controller/inscriptionCompetition.controller.php?refCompetition=<?php echo $competition['idcompetition'] ?>" class="btn btn-default" ><i class="fa fa-arrow-left" aria-hidden="true"></i> Participer</a>
 					<a href="../controller/participerCompetitionType.controller.php?refType=<?php echo $idType ?>" class="btn btn-default" ><i class="fa fa-arrow-left" aria-hidden="true"></i> Retour</a>
 				</div>
 			</div>
