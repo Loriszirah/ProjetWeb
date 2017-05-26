@@ -48,7 +48,7 @@
                 header('Location:gererEquipes.controller.php');
               }
           }
-          $equipes=getAllEquipes($idJoueur);
+          $equipes=getAllEquipesJoueur($idJoueur);
           require_once('../view/gererEquipes.php');
         }
         else{
