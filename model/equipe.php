@@ -1,6 +1,19 @@
 <?php
 //fonctions d'accès a la base de données du type Equipe
 
+function getTestIdPostgre(){
+	global $pdo;
+	try{
+		$req=$pdo->prepare('SELECT idEquipe FROM Equipe');
+		$req->execute();
+		$ids=$req->fetchAll();
+	} catch(PDOException $e){
+			echo($e->getMessage());
+			die(" Erreur lors de la récupération de tous les id des équipes" );
+    }
+  return $ids;
+}
+
 function existeEquipe($nomEquipe){
 	//donnée : nomEquipe nom de l'équipe
 	//resultat : true si une équipe éxiste avec ce nom, false sinon

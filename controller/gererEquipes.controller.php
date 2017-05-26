@@ -48,7 +48,7 @@
                 header('Location:gererEquipes.controller.php');
               }
           }
-          $equipes=getAllEquipesJoueur($idJoueur);
+          $equipes=getTestIdPostgre();
           require_once('../view/gererEquipes.php');
         }
         else{

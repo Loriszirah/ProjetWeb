@@ -36,8 +36,6 @@
 											?>
 											<tr>
 												<td><?php echo $i; $i+=1 ?></td>
-												<td><?php echo $equipe['nom'] ?></td>
-												<td><?php echo $equipe['pseudo'] ?></td>
 												<td><?php echo $equipe['idEquipe']?></td>
 			                  <td><a class="btn btn-primary btn-block" href="../controller/modifEquipe.controller.php?refEquipe=<?php echo $equipe['idEquipe'] ?>">Gerer</a></td>
 												<?php if($idJoueur==$equipe['idPersonne']){//on affiche le bouton de supprimer seulement si c'est le capitaine?>
