@@ -165,6 +165,9 @@ function deleteJoueur($idJoueur){
 
 	global $pdo;
 	try{
+		$req=$pdo->prepare('DELETE FROM Appartenir WHERE idPersonne=?');
+		$req->execute(array($idJoueur));
+		
 		$req=$pdo->prepare('DELETE FROM Joueur WHERE idPersonne=?');
 		$req->execute(array($idJoueur));
 
@@ -172,9 +175,6 @@ function deleteJoueur($idJoueur){
 		$req->execute(array($idJoueur));
 
 		$req=$pdo->prepare('DELETE FROM Personne WHERE idPersonne=?');
-		$req->execute(array($idJoueur));
-
-		$req=$pdo->prepare('DELETE FROM Appartenir WHERE idPersonne=?');
 		$req->execute(array($idJoueur));
 	} catch(PDOException $e){
 			echo($e->getMessage());
