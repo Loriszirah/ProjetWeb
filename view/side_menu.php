@@ -14,7 +14,7 @@
               <a href="#"><i class="fa fa-table "></i>Gérer les administrateurs<span class="fa arrow"></span></a>
               <ul class="nav nav-second-level">
                   <li>
-                      <a href="ajoutAdministrateur.controller.php">Ajouter un administrateur</a>
+                      <a href="ajouterAdministrateur.controller.php">Ajouter un administrateur</a>
                   </li>
                   <li>
                       <a href="consulterAdministrateurs.controller.php">Consulter les administrateurs</a>
