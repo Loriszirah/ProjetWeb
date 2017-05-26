@@ -2,8 +2,7 @@
   require_once('../vendor/autoload.php');
   require_once('../model/token.php');
   require_once('../model/connexionBD.php');
-  require_once('../model/utilisateur.php');
-  require_once('../model/equipe.php');
+  require_once('../model/joueur.php');
   use \Firebase\JWT\JWT;
 
 
@@ -24,28 +23,27 @@
 
       //On vérifie que c'est un token valide
       if (verificationToken($decoded_array)){
-        if($decoded_array['role']==="joueur"){
-          if(isset($_POST['nomEquipe']) && !empty($_POST['nomEquipe'])){
-            $nomEquipe=htmlspecialchars($_POST['nomEquipe']);
-            if(!existeEquipe($nomEquipe)){
-              $idJoueur=$decoded_array['id'];
-              ajoutEquipe($nomEquipe,$idJoueur);
-              $ajout=true;
+        if($decoded_array['role']==="administrateur"){
+          if(isset($_GET['refJoueurSupp']) && !empty($_GET['refJoueurSupp'])){
+            $idJoueur=htmlspecialchars($_GET['refJoueurSupp']);
+            if(existeJoueurId($idJoueur)){
+                deleteJoueur($idJoueur);
             }
             else{
-              $ajout=false;
+              header('Location:consulterJoueurs.controller.php');
             }
           }
-          require_once('../controller/creationEquipe.controller.php');
+          $joueurs=getAllJoueurs();
+          require_once('../view/consulterJoueurs.php');
         }
         else{
-          // On le redirige vers la page admin ou utilisateur (si c'est un organisateur)
+          // On le redirige vers la page utilisateur
           header('Location:redirection.php');
         }
       }
-      else {
+      else{
         // On le redirige et on enlève le cookie.
         header('Location:redirection.php');
       }
-  }
+    }
 ?>

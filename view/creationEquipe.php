@@ -5,25 +5,18 @@
 		<title>Volley-ball Tournament Organisator</title>
 		<!-- BOOTSTRAP STYLES-->
 		<link href="../assets/css/bootstrap.css" rel="stylesheet" />
-		<!-- FONTAWESOME STYLES-->
-		<link href="../assets/css/font-awesome.css" rel="stylesheet" />
-		<script src="https://use.fontawesome.com/1ab5ac683d.js"></script>
 		<!-- CUSTOM STYLES-->
 		<link href="../assets/css/custom.css" rel="stylesheet" />
 		<!-- GOOGLE FONTS-->
 		<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
 	</head>
 	<body>
-    <?php
-      if(isset($ajout)){
-        if($ajout){?>
-          Equipe créée avec succès !
-        <?php }
-        else{?>
-          Nom d'équipe déjà utilisé
-        <?php }
-    }?>
 		<div id="wrapper">
+			<?php include("menuTop.php"); ?>
+			<!-- menu à gauche seulement si on est connecté -->
+			<?php if (isset($_COOKIE["token"]) && verificationToken($decoded_array)){
+				 include("side_menu.php");
+			} ?>
 			<div class="container">
 					<div class="row">
 							<div class="col-md-4 col-md-offset-4">
@@ -32,7 +25,7 @@
 													<h3 class="panel-title centrer">Création Equipe</h3>
 											</div>
 											<div class="panel-body">
-										    <form action="../controller/creationEquipeVerif.controller.php" method="post">
+										    <form action="../controller/creationEquipe.controller.php" method="post">
 													<fieldset>
 															<div class="form-group">
 																<label>Nom de l'équipe</label>
@@ -43,6 +36,7 @@
 															</div>
 													</fieldset>
 										    </form>
+												<a href="../controller/pageUtilisateur.controller.php" class="btn btn-default" ><i class="fa fa-arrow-left" aria-hidden="true"></i> Retour</a>
 											</div>
 									</div>
 							</div>
@@ -50,7 +44,6 @@
 			</div>
 		</div>
 		<!-- /. WRAPPER  -->
-		<a href="../controller/pageUtilisateur.controller.php?" class="btn btn-default" ><i class="fa fa-arrow-left" aria-hidden="true"></i> Retour</a>
 		<!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
 		<!-- JQUERY SCRIPTS -->
 		<script src="../assets/js/jquery-3.2.1.min.js"></script>

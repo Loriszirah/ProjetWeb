@@ -2,8 +2,8 @@
   require_once('../vendor/autoload.php');
   require_once('../model/token.php');
   require_once('../model/connexionBD.php');
-  require_once('../model/utilisateur.php');
   require_once('../model/equipe.php');
+  require_once('../model/appartenir.php');
   use \Firebase\JWT\JWT;
 
 
@@ -28,11 +28,25 @@
           $idJoueur=$decoded_array['id'];
           if(isset($_GET['refEquipeSupp']) && !empty($_GET['refEquipeSupp'])){
             $idEquipe=htmlspecialchars($_GET['refEquipeSupp']);
-            $equipe=getEquipe($idEquipe);
-            //On ne peut supprimer une équipe que si on est capitaine
-            if($equipe['idPerson']==$idJoueur){
-              deleteEquipe($idEquipe);
+            if(existeEquipeid($idEquipe)){
+              $equipe=getInfosEquipe($idEquipe);
+              //On ne peut supprimer une équipe que si on est capitaine
+              if($equipe['idPersonne']==$idJoueur){
+                deleteEquipe($idEquipe);
+              }
             }
+            else{
+              header('Location:gererEquipes.controller.php');
+            }
+          }
+          if(isset($_GET['refEquipeQuit']) && !empty($_GET['refEquipeQuit'])){
+            $idEquipe=htmlspecialchars($_GET['refEquipeQuit']);
+              if(existeEquipeid($idEquipe)){
+                deleteJoueur($idJoueur,$idEquipe);
+              }
+              else{
+                header('Location:gererEquipes.controller.php');
+              }
           }
           $equipes=getAllEquipes($idJoueur);
           require_once('../view/gererEquipes.php');

@@ -1,14 +1,10 @@
 <!DOCTYPE html>
 <html>
-
 	<head>
 		<meta charset="utf-8"/>
 		<title>Inscription Joueur</title>
 		<!-- BOOTSTRAP STYLES-->
 		<link href="../assets/css/bootstrap.css" rel="stylesheet" />
-		<!-- FONTAWESOME STYLES-->
-		<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
-		<link href="../assets/css/font-awesome.css" rel="stylesheet" />
 		<!-- CUSTOM STYLES-->
 		<link href="../assets/css/custom.css" rel="stylesheet" !important/>
 		<!-- GOOGLE FONTS-->
@@ -16,6 +12,7 @@
 
 	<body>
 		<div id="wrapper">
+			<?php include("menuTop.php"); ?>
 			<div class="container">
 					<div class="row">
 							<div class="col-md-4 col-md-offset-4">
@@ -74,11 +71,10 @@
 		<!-- /. WRAPPER  -->
 		<!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
 		<!-- JQUERY SCRIPTS -->
-		<script src="../assets/js/jquery-3.2.1.min.js"></script>	
+		<script src="../assets/js/jquery-3.2.1.min.js"></script>
 		<!-- BOOTSTRAP SCRIPTS -->
 		<script src="../assets/js/bootstrap.min.js"></script>
 		<!-- CUSTOM SCRIPTS -->
 		<script type="text/javascript" src="../controller/js/inscriptionVerificationInfo.js"></script>
 	</body>
-
 </html>

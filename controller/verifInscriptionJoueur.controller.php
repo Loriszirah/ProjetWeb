@@ -1,8 +1,7 @@
 <?php
 require_once('../model/connexionBD.php');
 require_once('../model/joueur.php');
-require_once('../model/personne.php')
-ini_set('display_errors',1);
+require_once('../model/personne.php');
 
   //TODO : mettre ces variables dans un fichier .env
   $key = "vOlleYYBallzTournAm1ntOrgAN1SatAurE";
@@ -17,7 +16,7 @@ ini_set('display_errors',1);
       $pseudo = htmlspecialchars ($_POST['pseudo']);
       $age = htmlspecialchars ($_POST['age']);
       $telephone = htmlspecialchars ($_POST['telephone']);
-      $ville = htmlspecialchars ($_POST['ville']);
+      $ville =strtoupper(htmlspecialchars ($_POST['ville']));
       $passwd = htmlspecialchars ($_POST['passwd']);
       $passwdconf = htmlspecialchars ($_POST['passwdconf']);
 
@@ -29,7 +28,7 @@ ini_set('display_errors',1);
 	    if(!$idPseudo){
         if(!$idEmail){
          ajoutJoueur($nom,$prenom,$email,$passwd,$pseudo,$age,$telephone,$ville);
-         header('../controller/connexionJoueur.controller.php');
+         header('Location:connexionJoueur.controller.php');
         }
         else{
           echo 'ERREUR : ce mail est déjà utilisé';

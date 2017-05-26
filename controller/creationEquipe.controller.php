@@ -3,6 +3,7 @@
   require_once('../model/token.php');
   require_once('../model/connexionBD.php');
   require_once('../model/utilisateur.php');
+  require_once('../model/equipe.php');
   use \Firebase\JWT\JWT;
 
 
@@ -22,6 +23,16 @@
       //On vérifie que c'est un token valide
       if (verificationToken($decoded_array)){
         if($decoded_array['role']==="joueur"){
+          if(isset($_POST['nomEquipe']) && !empty($_POST['nomEquipe'])){
+            $nomEquipe=htmlspecialchars($_POST['nomEquipe']);
+            if(!existeEquipe($nomEquipe)){
+              $idJoueur=$decoded_array['id'];
+              ajoutEquipe($nomEquipe,$idJoueur);
+              echo "Equipe créée avec succès";
+            }
+            else{
+              echo "ERREUR : nom d'équipe déjà utilisé";            }
+          }
           require_once('../view/creationEquipe.php');
         }
         else if($decoded_array['role']==="organisateur"){

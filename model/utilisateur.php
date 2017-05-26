@@ -8,9 +8,12 @@ function getInfosUtilisateur($idUtilisateur){
 
 	global $pdo;
 	try{
-		$req=$pdo->prepare('SELECT * FROM Utilisateur u
-															   INNER JOIN Personne p ON p.idPersonne=u.idPersonne
-																 WHERE p.idPersonne=?');
+		$req=$pdo->prepare('SELECT p.nom as nom,p.prenom as prenom,p.email as email,p.pseudo as pseudo,u.age as age,
+			 									u.telephone as telephone,v.libelle as libelle
+											 FROM Utilisateur u
+										   INNER JOIN Personne p ON p.idPersonne=u.idPersonne
+											 INNER JOIN Ville v ON u.idVille=v.idVille
+											 WHERE p.idPersonne=?');
 		$req->execute(array($idUtilisateur));
 		$infos=$req->fetch();
 	} catch(PDOException $e){

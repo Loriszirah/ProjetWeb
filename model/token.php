@@ -7,7 +7,7 @@
      *Commentaire: On utilise des JWT (Json Web Token) couplé à un cryptage HS256. Ce qui fait que si l'on modifie un cookie manuellement (dans le but d'hacker l'application), il serait très difficile d'avoir à
      *             à nouveau un token valide sans connaître la clé secrète de chiffrement et les paramètres nécessaire à la création du token.
      */
-    $roles= array("organisateur", "admin", "joueur");
+    $roles= array("organisateur", "administrateur", "joueur");
     return $decoded_array['iss']==$_SERVER['HTTP_HOST'] && $decoded_array['exp'] > time() && $decoded_array['id']>0 && in_array($decoded_array['role'],$roles);
   }
 ?>

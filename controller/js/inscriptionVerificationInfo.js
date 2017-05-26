@@ -1,11 +1,3 @@
-function verifInfo(){
-	/*
-	 * But: On vérifie que toutes les cases sont remplies
-	 */
-   res=true;
-	 return res;
-}
-
 function verifPassword(){
   /*
    * But : On vérifie si les deux mots de passe sont indentiques
@@ -15,6 +7,7 @@ function verifPassword(){
    password2=document.getElementById("passwdconf").value
    if(password2!=password1){
      res=false;
+     alert("Vos mots de passe ne correspondent pas");
      document.getElementById("passwdconf").focus();
    }
    return res;

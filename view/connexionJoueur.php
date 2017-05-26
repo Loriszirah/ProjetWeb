@@ -13,8 +13,6 @@
 		<link href="../assets/css/bootstrap.css" rel="stylesheet" />
 		<!-- MetisMenu CSS -->
 		<link	href="https://cdnjs.cloudflare.com/ajax/libs/metisMenu/2.6.1/metisMenu.min.css" rel="stylesheet">
-		<!-- FONTAWESOME STYLES-->
-		<link href="../assets/css/font-awesome.css" rel="stylesheet" />
 		<!-- CUSTOM STYLES-->
 		<link href="../assets/css/custom.css" rel="stylesheet" />
 		<!-- GOOGLE FONTS-->
@@ -22,6 +20,7 @@
 	</head>
 	<body>
 		<div id="wrapper">
+			<?php include("menuTop.php"); ?>
 			<div class="container">
 	        <div class="row">
 	            <div class="col-md-4 col-md-offset-4">
@@ -30,7 +29,7 @@
 	                        <h3 class="panel-title">Connectez vous</h3>
 	                    </div>
 	                    <div class="panel-body">
-	                        <form action="../controller/loginJoueur.controller.php" method="post" onsubmit="return verifInfo()" role="form">
+	                        <form action="../controller/connexionJoueur.controller.php" method="post" onsubmit="return verifInfo()" role="form">
 	                            <fieldset>
 	                                <div class="form-group">
 																			<label>Email : </label>

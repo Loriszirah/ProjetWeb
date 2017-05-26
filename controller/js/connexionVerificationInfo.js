@@ -1,4 +1,3 @@
-//stand by
 function verifInfo(){
 	/*
 	 * But: On vérifie que toutes les cases sont remplies
