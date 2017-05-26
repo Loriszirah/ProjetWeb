@@ -29,9 +29,9 @@
           if(isset($_GET['refEquipeSupp']) && !empty($_GET['refEquipeSupp'])){
             $idEquipe=htmlspecialchars($_GET['refEquipeSupp']);
             if(existeEquipeid($idEquipe)){
-              $equipe=getInfosEquipe($idEquipe);
+              $infosEquipe=getInfosEquipe($idEquipe);
               //On ne peut supprimer une équipe que si on est capitaine
-              if($equipe['idPersonne']==$idJoueur){
+              if($infosEquipe['idPersonne']==$idJoueur){
                 deleteEquipe($idEquipe);
               }
             }
