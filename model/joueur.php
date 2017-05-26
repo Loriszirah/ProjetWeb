@@ -165,9 +165,13 @@ function deleteJoueur($idJoueur){
 
 	global $pdo;
 	try{
+		//Choix : si l'administrateur supprime un joueur, alors cela supprime toutes les équipes dans lesquelles il est capitaine
+		$req=$pdo->prepare('DELETE FROM Equipe WHERE idPersonne=?');
+		$req->execute(array($idJoueur));
+
 		$req=$pdo->prepare('DELETE FROM Appartenir WHERE idPersonne=?');
 		$req->execute(array($idJoueur));
-		
+
 		$req=$pdo->prepare('DELETE FROM Joueur WHERE idPersonne=?');
 		$req->execute(array($idJoueur));
 

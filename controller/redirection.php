@@ -8,7 +8,7 @@
     if(!isset($_COOKIE["token"])){
 
              // On le redirige vers la page d'accueil
-             include('../view/pageAccueil.php');
+             require_once('../view/pageAccueil.php');
      }
      else{
        //TODO: mettre dans un fichier .env

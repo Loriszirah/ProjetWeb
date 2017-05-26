@@ -77,6 +77,19 @@ function getAllEquipesJoueur($idJoueur){
   return $equipes;
 }
 
+function getTestIdPostgre(){
+	global $pdo;
+	try{
+		$req=$pdo->prepare('SELECT idEquipe FROM Equipe');
+		$req->execute();
+		$ids=$req->fetchAll();
+	} catch(PDOException $e){
+			echo($e->getMessage());
+			die(" Erreur lors de la récupération de tous les id des équipes" );
+    }
+  return $ids;
+}
+
 function getAllEquipes(){
 	//resultat : l'ensemble des équipes
 

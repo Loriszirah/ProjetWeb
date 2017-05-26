@@ -103,4 +103,24 @@ function getNombreAdministrateurs(){
 		return $nbAdministrateurs[0];
 }
 
+function ajoutAdministrateur($nom,$prenom,$email,$passwd,$pseudo){
+	//résultat : ajoute l'administrateur à la BD
+
+	global $pdo;
+	try{
+		$req=$pdo->prepare('INSERT INTO Personne(nom,prenom,email,passwd,pseudo) VALUES(?,?,?,?,?)');
+		$req->execute(array($nom,$prenom,$email,$passwd,$pseudo));
+
+		$req=$pdo->prepare('SELECT idPersonne FROM Personne WHERE pseudo=?');
+		$req->execute(array($pseudo));
+		$id=$req->fetch();
+
+		$req=$pdo->prepare('INSERT INTO Administrateur VALUES(?)');
+		$req->execute(array($id[0]));
+
+	} catch(PDOException $e){
+			echo($e->getMessage());
+			die(" Erreur lors de l'ajout de l'administrateur à la bd" );
+		}
+}
 ?>

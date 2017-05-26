@@ -14,7 +14,7 @@
 	</head>
 	<body>
   	<div id="wrapper">
-  		<!-- NAV SIDE only if we are connected -->
+  		<!-- menu à gauche seulement si on est connecté -->
   		<?php if (isset($_COOKIE["token"]) && verificationToken($decoded_array)){
   			 include("side_menu.php");
   		} ?>

@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-		<title>Connexion Organisateur</title>
+		<title>Volley-ball Tournament Organisator</title>
 		<!-- BOOTSTRAP STYLES-->
 		<link href="../assets/css/bootstrap.css" rel="stylesheet" />
 		<!-- MetisMenu CSS -->

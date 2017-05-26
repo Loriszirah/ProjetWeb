@@ -13,16 +13,20 @@
 
 	<body>
 		<div id="wrapper">
-			<?php include("menuTop.php"); ?>
+      <?php include("menuTop.php"); ?>
+			<!-- menu à gauche seulement si on est connecté -->
+			<?php if (isset($_COOKIE["token"]) && verificationToken($decoded_array)){
+				 include("side_menu.php");
+			} ?>
 			<div class="container">
 					<div class="row">
 							<div class="col-md-4 col-md-offset-4">
 									<div class="login-panel panel panel-default">
 											<div class="panel-heading">
-													<h3 class="panel-title centrer">Inscription Joueur</h3>
+													<h3 class="panel-title centrer">Ajout administrateur</h3>
 											</div>
 											<div class="panel-body">
-													<form action="../controller/verifInscriptionJoueur.controller.php" method="post" onsubmit="return verifPassword();" role="form">
+													<form action="../controller/ajouterAdministrateur.controller.php" method="post" onsubmit="return verifPassword();" role="form">
 															<fieldset>
 																	<div class="form-group">
 																			<label>Nom : </label>
@@ -39,14 +43,6 @@
                                   <div class="form-group">
 																			<label>Pseudo : </label>
 																			<input type="text" class="form-control" name="pseudo" placeholder="pseudo" required />
-																	</div>
-                                  <div class="form-group">
-																			<label>Age : </label>
-																			<input type="number" class="form-control" name="age" placeholder="21" required />
-																	</div>
-                                  <div class="form-group">
-																			<label>Numéro de téléphone : </label>
-																			<input type="tel" class="form-control" name="telephone" placeholder="06 34 34 34 34" required />
 																	</div>
 																	<div class="form-group">
 																			<label>Mot de passe : </label>

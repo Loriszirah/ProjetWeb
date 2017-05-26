@@ -90,6 +90,14 @@ function deleteOrganisateur($idOrganisateur){
 
 	global $pdo;
 	try{
+		$req=$pdo->prepare('DELETE FROM Participer p
+												INNER JOIN Competition c ON c.idCompetition=p.idCompetition
+												 WHERE idPersonne=?');
+		$req->execute(array($idOrganisateur));
+
+		$req=$pdo->prepare('DELETE FROM Competition WHERE idPersonne=?');
+		$req->execute(array($idOrganisateur));
+
 		$req=$pdo->prepare('DELETE FROM Organisateur WHERE idPersonne=?');
 		$req->execute(array($idOrganisateur));
 

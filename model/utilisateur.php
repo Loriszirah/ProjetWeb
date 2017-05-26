@@ -9,7 +9,7 @@ function getInfosUtilisateur($idUtilisateur){
 	global $pdo;
 	try{
 		$req=$pdo->prepare('SELECT p.nom as nom,p.prenom as prenom,p.email as email,p.pseudo as pseudo,u.age as age,
-			 									u.telephone as telephone,v.libelle as libelle
+			 									u.telephone as telephone
 											 FROM Utilisateur u
 										   INNER JOIN Personne p ON p.idPersonne=u.idPersonne
 											 WHERE p.idPersonne=?');
