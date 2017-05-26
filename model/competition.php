@@ -49,7 +49,7 @@ function getCompetitionsType($idTypeCompetition){
 												c.nbEquipes as nbEquipes,c.idCompetition as idCompetition
 												FROM Competition c
 												INNER JOIN Ville v ON v.idVille=c.idVille
-												WHERE idTypeCompetition=? AND c.nbEquipes>(SELECT COUNT(*) FROM Participer WHERE idCompetition)');
+												WHERE idTypeCompetition=? AND c.nbEquipes>(SELECT COUNT(*) FROM Participer WHERE idCompetition=c.idCompetition)');
     $req->execute(array($idTypeCompetition));
     $competitions=$req->fetchAll();
   }catch(PDOException $e){

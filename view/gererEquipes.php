@@ -12,11 +12,6 @@
 	</head>
   <body>
 		<div id="wrapper">
-			<?php include("menuTop.php"); ?>
-			<!-- menu à gauche seulement si on est connecté -->
-			<?php if (isset($_COOKIE["token"]) && verificationToken($decoded_array)){
-				 include("side_menu.php");
-			} ?>
 			<div id="page-wrapper">
         <div id="page-inner">
 					<h2 class="titrePage">Gerer vos équipes</h2>
