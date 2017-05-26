@@ -23,6 +23,7 @@
       //On vérifie que c'est un token valide
       if (verificationToken($decoded_array)){
         if($decoded_array['role']==="joueur" || $decoded_array['role']==="organisateur"){
+          $id=$decoded_array['id'];
           $pseudo=getPseudoUtilisateur($decoded_array['id']);
           $role=$decoded_array['role'];
 
