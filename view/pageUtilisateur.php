@@ -30,7 +30,7 @@
 			      ?>
 					<div class="row">
             <div class="col-md-6 col-sm-5 col-xs-6">
-              <h5>Profil</h5>
+              <h5>Profil. Id : <?php echo $id ?> </h5>
                 <div class="alert alert-info text-center">
                         <i class="fa fa-list-alt fa-5x"></i>
                         <h3>Accèder à votre profil</h3>
