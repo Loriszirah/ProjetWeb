@@ -4,5 +4,5 @@
 	setcookie('token', '', time()-10000000, '/');
 	// Unset key
 	unset($_COOKIE["token"]);
-	header('Location:../index.php');
+	header('Location:pageAccueil.controller.php');
 ?>
