@@ -7,6 +7,7 @@
 		<link href="../assets/css/bootstrap.css" rel="stylesheet" />
 		<!-- CUSTOM STYLES-->
 		<link href="../assets/css/custom.css" rel="stylesheet" />
+		<link href="../assets/css/perso.css" rel="stylesheet" />
 		<!-- GOOGLE FONTS-->
 		<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
 	</head>
@@ -28,7 +29,7 @@
 						<div class="col-lg-12">
 	          	<div class="panel panel-default">
 	          			<div class="panel-body">
-										<form action="../controller/profil.controller.php" method="post" onsubmit="return informationsCorrectes();">
+										<form action="../controller/profil.controller.php" method="post" onsubmit="return verifmdp();">
 											<label>Pseudo :</label>
 											<input type="text" value="<?php echo $pseudo ?>"  name="pseudo" required/>
 											<br/>
@@ -61,8 +62,9 @@
 													<input type="password" name="passwd" id="passwd" />
 													<label>Confirmer :</label>
 													<input type="password" name="futur" id="futur" />
+													<input type="button" class="btn btn-primary" value="Annuler" id="annulerNom" onclick="cacherMdp();"/>
 												</div>
-												<input type="button" value="Modifier" id="modifier" class="btn btn-primary" onclick="afficher();"/>
+												<input type="button" value="Modifier" id="modifier" class="btn btn-primary" onclick="afficherMdp();"/>
 											</div>
 											<input type="submit" value="Enregistrer" class="btn btn-success"/>
 										</form>
@@ -83,5 +85,6 @@
 		<script src="../assets/js/jquery.metisMenu.js"></script>
 		<!-- CUSTOM SCRIPTS -->
 		<script src="../assets/js/custom.js"></script>
+		<script src="../controller/js/profilUtilisateur.js"></script>
 	</body>
 </html>
