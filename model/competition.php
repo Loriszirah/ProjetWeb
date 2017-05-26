@@ -8,13 +8,12 @@ function getInfosCompetition($idCompetition){
 	global $pdo;
 	try{
 		$req=$pdo->prepare('SELECT c.dateDebutCompetition as dateDebut, c.adresse as adresse,c.nomCompetition as nom, c.prixEntree as prix,
-												c.description as description,v.libelle as libelleVille,c.nbEquipes as nbEquipes,u.telephone as telephone,
+												c.description as description,c.nbEquipes as nbEquipes,u.telephone as telephone,
 												t.libelle as libelleType,t.nbJoueurs as nbJoueurs,pe.pseudo as pseudo,pe.email as mail,c.idCompetition as idCompetition
                         FROM Competition c
                         INNER JOIN Utilisateur u ON c.idPersonne=u.idPersonne
                         INNER JOIN Personne pe ON pe.idPersonne=u.idPersonne
-                        INNER JOIN TypeCompetition t ON t.idTypeCompetition=c.idTypeCompetition
-                        INNER JOIN Ville v ON v.idVille=c.idVille');
+                        INNER JOIN TypeCompetition t ON t.idTypeCompetition=c.idTypeCompetition');
 		$req->execute(array($idCompetition));
 		$infos=$req->fetch();
 	} catch(PDOException $e){
@@ -45,10 +44,9 @@ function getCompetitionsType($idTypeCompetition){
 
 	global $pdo;
 	try{
-    $req=$pdo->prepare('SELECT c.nomCompetition as nom,c.dateDebutCompetition as dateDebut,v.libelle as ville,c.prixEntree as prix,
+    $req=$pdo->prepare('SELECT c.nomCompetition as nom,c.dateDebutCompetition as dateDebut,c.prixEntree as prix,
 												c.nbEquipes as nbEquipes,c.idCompetition as idCompetition
 												FROM Competition c
-												INNER JOIN Ville v ON v.idVille=c.idVille
 												WHERE idTypeCompetition=? AND c.nbEquipes>(SELECT COUNT(*) FROM Participer WHERE idCompetition=c.idCompetition)');
     $req->execute(array($idTypeCompetition));
     $competitions=$req->fetchAll();
@@ -75,29 +73,15 @@ function existeCompetitionNom($nomCompetition){
   return $compteur[0]>0;
 }
 
-function ajoutCompetition($nomCompetition,$idTypeCompetition,$idOrganisateur,$nbEquipes,$prix,$dateDebut,$description,$ville,$adresse){
-	//donnée : nom de la compétition, id du type de la compétition, id de l'organisateur de la compétition, nombre d'équipes, prix d'entrée, date de début, description, libéllé de la ville et adresse de la compétition
+function ajoutCompetition($nomCompetition,$idTypeCompetition,$idOrganisateur,$nbEquipes,$prix,$dateDebut,$description,$adresse){
+	//donnée : nom de la compétition, id du type de la compétition, id de l'organisateur de la compétition, nombre d'équipes, prix d'entrée, date de début, description et adresse de la compétition
 	//résultat : ajoute la compétition
 
 	global $pdo;
 	try{
-		/* Ajout de la ville si elle n'éxiste pas et récupération de l'id de la ville */
-		$req=$pdo->prepare('SELECT COUNT(*) FROM Ville WHERE libelle=?');
-		$req->execute(array($ville));
-		$compteur=$req->fetch();
-
-		if($compteur[0]<=0){
-			$req=$pdo->prepare('INSERT INTO Ville(libelle) VALUES(?)');
-			$req->execute(array($ville));
-		}
-
-		$req=$pdo->prepare('SELECT idVille FROM Ville WHERE libelle=?');
-		$req->execute(array($ville));
-		$idVille=$req->fetch();
-
 		/* Ajout de la compétiton dans la table competition */
-		$req=$pdo->prepare('INSERT INTO Competition (nomCompetition,idTypeCompetition,idPersonne,nbEquipes,prixEntree,dateDebutCompetition,description,idVille,adresse) VALUES(?,?,?,?,?,?,?,?,?)');
-		$req->execute(array($nomCompetition,$idTypeCompetition,$idOrganisateur,$nbEquipes,$prix,$dateDebut,$description,$idVille[0],$adresse));
+		$req=$pdo->prepare('INSERT INTO Competition (nomCompetition,idTypeCompetition,idPersonne,nbEquipes,prixEntree,dateDebutCompetition,description,adresse) VALUES(?,?,,?,?,?,?,?,?)');
+		$req->execute(array($nomCompetition,$idTypeCompetition,$idOrganisateur,$nbEquipes,$prix,$dateDebut,$description,$adresse));
 	}catch(PDOException $e){
   			echo($e->getMessage());
   			die("Erreur lors de l'ajout de la compétition" );
@@ -111,9 +95,8 @@ function getAllCompetitionsOrga($idOrganisateur){
 	global $pdo;
 	try{
 		$req=$pdo->prepare('SELECT c.idCompetition as idCompetition,c.nbEquipes as nbEquipes, c.adresse as adresse, c.prixEntree as prix, c.description as description,c.nomCompetition as nomCompetition,
-												v.libelle as libelleVille,t.libelle as libelleTypeCompetition,u.telephone as telephone,p.email as email,p.pseudo as pseudo, c.dateDebutCompetition as dateDebut
+												t.libelle as libelleTypeCompetition,u.telephone as telephone,p.email as email,p.pseudo as pseudo, c.dateDebutCompetition as dateDebut
 											 FROM Competition c
-											 INNER JOIN Ville v on v.idVille=c.idVille
 											 INNER JOIN Utilisateur u ON u.idPersonne=c.idPersonne
 											 INNER JOIN Personne p ON p.idPersonne=c.idPersonne
 											 INNER JOIN TypeCompetition t ON t.idTypeCompetition=c.idTypeCompetition
@@ -134,9 +117,8 @@ function getAllCompetitions(){
 	global $pdo;
 	try{
 		$req=$pdo->prepare('SELECT c.idCompetition as idCompetition,c.nbEquipes as nbEquipes, c.adresse as adresse, c.prixEntree as prix, c.description as description,c.nomCompetition as nom,
-												v.libelle as libelleVille,t.libelle as libelleTypeCompetition,u.telephone as telephone,p.email as email,p.pseudo as pseudo, c.dateDebutCompetition as dateDebut
+												t.libelle as libelleTypeCompetition,u.telephone as telephone,p.email as email,p.pseudo as pseudo, c.dateDebutCompetition as dateDebut
 											 FROM Competition c
-											 INNER JOIN Ville v on v.idVille=c.idVille
 											 INNER JOIN Utilisateur u ON u.idPersonne=c.idPersonne
 											 INNER JOIN Personne p ON p.idPersonne=c.idPersonne
 											 INNER JOIN TypeCompetition t ON t.idTypeCompetition=c.idTypeCompetition');

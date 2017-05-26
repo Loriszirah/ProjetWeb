@@ -20,7 +20,7 @@
 			<div id="page-wrapper">
         <div id="page-inner">
 					<h2 class="titrePage">Nom de la compétition : <?php echo $competition['nom'] ?></h2>
-			    <p>La competition se déroule à <?php echo $competition['libelleVille'] ?> le <?php echo $competition['dateDebut'] ?> à l'adresse <?php echo $competition['adresse'] ?>.</p>
+			    <p>La competition se déroule le <?php echo $competition['dateDebut'] ?> à l'adresse <?php echo $competition['adresse'] ?>.</p>
 					<p>Les matchs seront du <?php echo $competition['libelleType'] ?>. La compétition peut accueillir <?php echo $competition['nbEquipes'] ?> équipes et il y a actuellement <?php echo $nbEquipesInscrites ?> équipes actuellement inscrites.</p>
 			    <h3>Description de la compétition : </h3>
 			    <p><?php echo $competition['description'] ?></p>

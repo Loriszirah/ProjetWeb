@@ -16,7 +16,6 @@ require_once('../model/personne.php');
       $pseudo = htmlspecialchars ($_POST['pseudo']);
       $age = htmlspecialchars ($_POST['age']);
       $telephone = htmlspecialchars ($_POST['telephone']);
-      $ville =strtoupper(htmlspecialchars ($_POST['ville']));
       $passwd = htmlspecialchars ($_POST['passwd']);
       $passwdconf = htmlspecialchars ($_POST['passwdconf']);
 
@@ -27,7 +26,7 @@ require_once('../model/personne.php');
 			//On vérifie que le joueur n'est pas déjà dans la base de données
 	    if(!$idPseudo){
         if(!$idEmail){
-         ajoutOrganisateur($nom,$prenom,$email,$passwd,$pseudo,$age,$telephone,$ville);
+         ajoutOrganisateur($nom,$prenom,$email,$passwd,$pseudo,$age,$telephone);
          header('Location:connexionOrganisateur.controller.php');
         }
         else{

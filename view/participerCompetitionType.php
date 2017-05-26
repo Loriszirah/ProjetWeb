@@ -29,7 +29,7 @@
 			                <tr>
 			                  <th>Numéro</th>
 												<th>Nom</th>
-			                  <th>Ville</th>
+			                  <th>Adresse</th>
 			                  <th>Date</th>
 			                  <th>nbEquipesMax</th>
 												<th>Prix</th>
@@ -44,7 +44,7 @@
 											<tr>
 												<td><?php echo $i; $i+=1; ?></td>
 												<td><?php echo $competition['nom'] ?></td>
-												<td><?php echo $competition['ville'] ?></td>
+												<td><?php echo $competition['adresse'] ?></td>
 												<td><?php echo $competition['dateDebut'] ?></td>
 			                  <td><?php echo $competition['nbEquipes'] ?></td>
 												<td><?php echo $competition['prix'] ?></td>

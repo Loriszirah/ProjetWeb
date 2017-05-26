@@ -53,10 +53,6 @@
 											<input type="text" value="<?php echo $telephone ?>"  name="telephone" required/>
 											<br/>
 											<br/>
-											<label>Ville :</label>
-											<input type="text" value="<?php echo $ville ?>"  name="ville" required/>
-											<br/>
-											<br/>
 											<div class="form-group">
 												<label>Mot de passe : </label>
 

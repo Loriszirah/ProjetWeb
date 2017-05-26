@@ -48,10 +48,6 @@
 																			<label>Numéro de téléphone : </label>
 																			<input type="tel" class="form-control" name="telephone" placeholder="06 34 34 34 34" required />
 																	</div>
-                                  <div class="form-group">
-																			<label>Ville : </label>
-																			<input type="text" class="form-control" name="ville" placeholder="Montpellier" required />
-																	</div>
 																	<div class="form-group">
 																			<label>Mot de passe : </label>
 																			<input type="password" class="form-control" name="passwd" id="passwd" required />

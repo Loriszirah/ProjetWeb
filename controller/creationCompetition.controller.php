@@ -25,12 +25,11 @@
       if (verificationToken($decoded_array)){
         if($decoded_array['role']==="organisateur"){
           $typesCompet=getTypes();
-          if(isset($_POST['nomCompetition']) && isset($_POST['nbEquipes']) && isset($_POST['ville']) && isset($_POST['prix'])
+          if(isset($_POST['nomCompetition']) && isset($_POST['nbEquipes']) && isset($_POST['prix'])
               && isset($_POST['dateDebut']) && isset($_POST['description']) && isset($_POST['typeCompet'])
               && isset($_POST['adresse'])){
             $nomCompetition=htmlspecialchars($_POST['nomCompetition']);
             $nbEquipes=htmlspecialchars($_POST['nbEquipes']);
-            $ville=strtoupper(htmlspecialchars($_POST['ville']));
             $prix=htmlspecialchars($_POST['prix']);
             $dateDebut=htmlspecialchars($_POST['dateDebut']);
             $description=htmlspecialchars($_POST['description']);
@@ -40,7 +39,7 @@
             if(!existeCompetitionNom($nomCompetition)){
               $idOrganisateur=$decoded_array['id'];
               $idTypeCompetition=getIdType($libelleTypeCompetition);
-              ajoutCompetition($nomCompetition,$idTypeCompetition,$idOrganisateur,$nbEquipes,$prix,$dateDebut,$description,$ville,$adresse);
+              ajoutCompetition($nomCompetition,$idTypeCompetition,$idOrganisateur,$nbEquipes,$prix,$dateDebut,$description,$adresse);
               echo "Compétition créée avec succès";
             }
             else{

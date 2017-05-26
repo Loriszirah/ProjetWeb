@@ -1,7 +1,7 @@
 <?php
 //fonctions d'accès a la base de données du type organisateur
 
-function ajoutOrganisateur($nom,$prenom,$email,$passwd,$pseudo,$age,$telephone,$ville){
+function ajoutOrganisateur($nom,$prenom,$email,$passwd,$pseudo,$age,$telephone){
 	//donnée : informations de l'organisateur à ajouter
 	//resultat : ajoute l'organisateur à la bd
 
@@ -16,23 +16,9 @@ function ajoutOrganisateur($nom,$prenom,$email,$passwd,$pseudo,$age,$telephone,$
 		$req->execute(array($pseudo));
 		$idPersonne=$req->fetch();
 
-    /* Ajout de la ville si elle n'éxiste pas et récupération de l'id de la ville */
-		$req=$pdo->prepare('SELECT COUNT(*) FROM Ville WHERE libelle=?');
-		$req->execute(array($ville));
-		$compteur=$req->fetch();
-
-		if($compteur[0]<=0){
-			$req=$pdo->prepare('INSERT INTO Ville(libelle) VALUES(?)');
-			$req->execute(array($ville));
-		}
-
-		$req=$pdo->prepare('SELECT idVille FROM Ville WHERE libelle=?');
-		$req->execute($ville);
-		$idVille=$req->fetch();
-
 		/* Ajout de l'organisateur dans Utilisateur */
-		$req=$pdo->prepare('INSERT INTO Utilisateur(idPersonne,age,telephone,idVille) VALUES (?,?,?,?)');
-		$req->execute(array($idPersonne[0],$age,$telephone,$idVille[0]));
+		$req=$pdo->prepare('INSERT INTO Utilisateur(idPersonne,age,telephone) VALUES (?,?,?,?)');
+		$req->execute(array($idPersonne[0],$age,$telephone));
 
 		/* Ajout de l'organisateur dans Organisateur */
 		$req=$pdo->prepare('INSERT INTO Organisateur(idPersonne) VALUES (?)');
@@ -123,11 +109,10 @@ function getAllOrganisateurs(){
 
 	global $pdo;
 	try{
-		$req=$pdo->prepare('SELECT u.telephone as telephone,p.pseudo as pseudo,p.email as email,v.libelle as ville,o.idPersonne as idPersonne
+		$req=$pdo->prepare('SELECT u.telephone as telephone,p.pseudo as pseudo,p.email as email,o.idPersonne as idPersonne
 			 									FROM Organisateur o
 												INNER JOIN Utilisateur u ON o.idPersonne=u.idPersonne
-												INNER JOIN Personne p ON p.idPersonne=o.idPersonne
-												INNER JOIN Ville v ON v.idVille=u.idVille');
+												INNER JOIN Personne p ON p.idPersonne=o.idPersonne');
 		$req->execute();
 		$organisateurs=$req->fetchAll();
 	} catch(PDOException $e){

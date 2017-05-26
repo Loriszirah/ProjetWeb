@@ -34,7 +34,6 @@
           $email=$infos['email'];
           $age=$infos['age'];
           $telephone=$infos['telephone'];
-          $ville=$infos['ville'];
 
           //Pour chaque champ on vérifie si l'utilisateur a voulu le changer, et si oui on le change dans la bd
           if(isset($_POST["pseudo"]) & !empty($_POST["pseudo"])){

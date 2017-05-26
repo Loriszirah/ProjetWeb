@@ -12,7 +12,6 @@ function getInfosUtilisateur($idUtilisateur){
 			 									u.telephone as telephone,v.libelle as libelle
 											 FROM Utilisateur u
 										   INNER JOIN Personne p ON p.idPersonne=u.idPersonne
-											 INNER JOIN Ville v ON u.idVille=v.idVille
 											 WHERE p.idPersonne=?');
 		$req->execute(array($idUtilisateur));
 		$infos=$req->fetch();
@@ -53,20 +52,6 @@ function setAgeUtilisateur($idPersonne,$newAge){
 	} catch(PDOException $e){
 			echo($e->getMessage());
 			die(" Erreur lors de la modification de l'age de l'utilisateur" );
-    }
-}
-
-function setVilleUtilisateur($idPersonne,$newVille){
-	//donnée : id de la personne et nouveau ville
-  //resultat : change la ville de la personne et le remplace par le nouveau ville
-
-	global $pdo;
-	try{
-		$req=$pdo->prepare('UPDATE Utilisateur SET ville=? WHERE idPersonne=?');
-		$req->execute(array($newVille,$idPersonne));
-	} catch(PDOException $e){
-			echo($e->getMessage());
-			die(" Erreur lors de la modification de la ville de l'utilisateur" );
     }
 }
 

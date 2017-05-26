@@ -61,12 +61,11 @@ function getAllCompetitionsJoueurParticipant($idJoueur){
 
     global $pdo;
     try{
-      $req=$pdo->prepare('SELECT c.nomCompetition as nom,c.dateDebutCompetition as dateDebut,v.libelle as ville,c.prixEntree as prix,
+      $req=$pdo->prepare('SELECT c.nomCompetition as nom,c.dateDebutCompetition as dateDebut,c.prixEntree as prix,
                           c.nbEquipes as nbEquipes,t.libelle as typeCompetition,c.idCompetition as idCompetition,e.idPersonne as idPersonne
                           FROM Participer p
                           INNER JOIN Competition c ON c.idCompetition=p.idCompetition
                           INNER JOIN Equipe e ON e.idEquipe=p.idEquipe
-                          INNER JOIN Ville v ON v.idVille=c.idVille
                           INNER JOIN TypeCompetition t ON t.idTypeCompetition=c.idTypeCompetition
                           WHERE e.idEquipe IN (SELECT DISTINCT idEquipe FROM Appartenir WHERE idPersonne=?)');
       $req->execute(array($idJoueur));

@@ -30,7 +30,6 @@
 			                  <th>Numéro</th>
 			                  <th>Nom Compétition</th>
 			                  <th>Date début</th>
-												<th>Ville</th>
 			                  <th>Prix</th>
 			                  <th>nbEquipes</th>
 			                  <th>Type compétition</th>
@@ -45,7 +44,6 @@
 												<td><?php echo $i; $i+=1 ?></td>
 												<td><?php echo $competition['nom'] ?></td>
 												<td><?php echo $competition['dateDebut'] ?></td>
-												<td><?php echo $competition['ville'] ?></td>
 			                  <td><?php echo $competition['prix'] ?></td>
 			                  <td><?php echo $competition['nbEquipes'] ?></td>
 			                  <td><?php echo $competition['typeCompetition'] ?></td>

@@ -111,7 +111,7 @@ function getJoueurId($email){
 	return $idJoueur[0];
 }
 
-function ajoutJoueur($nom,$prenom,$email,$passwd,$pseudo,$age,$telephone,$ville){
+function ajoutJoueur($nom,$prenom,$email,$passwd,$pseudo,$age,$telephone){
 	//donnée : informations du joueur à ajouter
 	//resultat : ajoute le joueur à la bd
 
@@ -126,23 +126,9 @@ function ajoutJoueur($nom,$prenom,$email,$passwd,$pseudo,$age,$telephone,$ville)
 		$req->execute(array($pseudo));
 		$idPersonne=$req->fetch();
 
-		/* Ajout de la ville si elle n'éxiste pas et récupération de l'id de la ville */
-		$req=$pdo->prepare('SELECT COUNT(*) FROM Ville WHERE libelle=?');
-		$req->execute(array($ville));
-		$compteur=$req->fetch();
-
-		if($compteur[0]<=0){
-			$req=$pdo->prepare('INSERT INTO Ville(libelle) VALUES(?)');
-			$req->execute(array($ville));
-		}
-
-		$req=$pdo->prepare('SELECT idVille FROM Ville WHERE libelle=?');
-		$req->execute($ville);
-		$idVille=$req->fetch();
-
 		/* Ajout du joueur dans Utilisateur */
-		$req=$pdo->prepare('INSERT INTO Utilisateur(idPersonne,age,telephone,idVille) VALUES (?,?,?,?)');
-		$req->execute(array($idPersonne[0],$age,$telephone,$idVille[0]));
+		$req=$pdo->prepare('INSERT INTO Utilisateur(idPersonne,age,telephone) VALUES (?,?,?)');
+		$req->execute(array($idPersonne[0],$age,$telephone));
 
 		/* Ajout du joueur dans Joueur */
 		$req=$pdo->prepare('INSERT INTO Joueur(idPersonne) VALUES (?)');

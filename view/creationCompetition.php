@@ -45,10 +45,6 @@
 													      <input type="number" name="nbEquipes" required/>
 															</div>
                               <div class="form-group">
-																<label>Ville : </label>
-													      <input type="text" name="ville" required/>
-															</div>
-                              <div class="form-group">
 																<label>Prix : </label>
 													      <input type="number" name="prix" required/>
 															</div>

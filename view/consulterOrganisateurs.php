@@ -5,6 +5,8 @@
 		<title>Volley-ball Tournament Organisator</title>
 		<!-- BOOTSTRAP STYLES-->
 		<link href="../assets/css/bootstrap.css" rel="stylesheet" />
+		<!-- FONTAWESOME STYLES-->
+		<link href="../assets/css/font-awesome.css" rel="stylesheet" />
 		<!-- CUSTOM STYLES-->
 		<link href="../assets/css/custom.css" rel="stylesheet" />
 		<!-- GOOGLE FONTS-->
@@ -29,7 +31,6 @@
                         <th>Pseudo</th>
                         <th>Email</th>
                         <th>Téléphone</th>
-                        <th>Ville</th>
                         <th></th>
                       </tr>
                     </thead>
@@ -42,7 +43,6 @@
                         <td><?php echo $organisateur['pseudo'] ?></td>
       									<td><?php echo $organisateur['email'] ?></td>
                         <td><?php echo $organisateur['telephone'] ?></td>
-                        <td><?php echo $organisateur['ville'] ?></td>
       									<td><a class="btn btn-danger btn-block" href="../controller/consulterOrganisateurs.controller.php?refOrganisateurSupp=<?php echo $organisateur['idPersonne'] ?>">Supprimer</a></td>
                       </tr>
                     <?php } ?>
