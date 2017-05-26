@@ -7,8 +7,6 @@
 		<link href="../assets/css/bootstrap.css" rel="stylesheet" />
 		<!-- CUSTOM STYLES-->
 		<link href="../assets/css/custom.css" rel="stylesheet" />
-		<!-- FONTAWESOME STYLES-->
-		<link href="../assets/css/font-awesome.css" rel="stylesheet" />
 		<!-- GOOGLE FONTS-->
 		<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
 	</head>
