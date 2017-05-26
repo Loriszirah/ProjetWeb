@@ -106,7 +106,7 @@
 	<!-- /. WRAPPER  -->
 	<!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
 	<!-- JQUERY SCRIPTS -->
-	<script src="../assets/js/jquery-1.10.2.js"></script>
+	<script src="../assets/js/jquery-3.2.1.min.js"></script>
 	<!-- BOOTSTRAP SCRIPTS -->
 	<script src="../assets/js/bootstrap.min.js"></script>
 	<!-- METISMENU SCRIPTS -->
