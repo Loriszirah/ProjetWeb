@@ -33,11 +33,11 @@
 	                            <fieldset>
 	                                <div class="form-group">
 																			<label>Email : </label>
-	                                    <input class="form-control" placeholder="gunther@gmail.com" name="email" type="email" autofocus required>
+	                                    <input class="form-control" value="joueur2@gmail.com" placeholder="gunther@gmail.com" name="email" type="email" autofocus required>
 	                                </div>
 	                                <div class="form-group">
 																			<label>Mot de passe : </label>
-	                                    <input class="form-control" placeholder="password" name="password" type="password" required>
+	                                    <input class="form-control" value="admin" placeholder="password" name="password" type="password" required>
 	                                </div>
 																	<input type="submit" class="btn btn-lg btn-success btn-block" value="Connexion" />
 	                            </fieldset>
